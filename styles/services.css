@@ -1,0 +1,136 @@
+/* ===========================
+   CUBE CSS - Services Section
+   =========================== */
+
+/* COMPOSITION: Layout and structural layers */
+
+.services {
+    padding: var(--space-3xl) 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    text-align: center;
+}
+
+/* UTILITY: Reusable spacing and sizing utilities */
+
+.service-card > * {
+    padding-inline: var(--space-lg);
+}
+
+.service-card > :first-child {
+    font-size: 48px;
+    padding: var(--space-3xl) var(--space-lg) var(--space-lg);
+    flex-shrink: 0;
+}
+
+.service-card h3 {
+    margin: 0 0 var(--space-md) 0;
+    flex-shrink: 0;
+}
+
+.service-card p {
+    margin-bottom: var(--space-md);
+    font-size: var(--text-sm);
+}
+
+.service-card p:nth-last-of-type(2) {
+    flex-grow: 1;
+}
+
+.service-card p:nth-last-of-type(1) {
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: var(--space-lg) 0 var(--space-md);
+}
+
+/* BLOCK: Service card component */
+
+.service-card {
+    background: var(--color-white);
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    min-height: 500px;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* BLOCK: Service card buttons */
+
+.service-card a {
+    background: transparent;
+    color: var(--color-primary);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 var(--space-lg) var(--space-lg);
+    transition: background var(--transition-base), color var(--transition-base), border var(--transition-base), transform var(--transition-fast);
+    border: 2px solid var(--color-primary);
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.service-card a:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.service-card a:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* EXCEPTION: Featured card (nth-child) and responsive variations */
+
+.service-card:nth-child(2) {
+    border-color: var(--color-primary);
+    border-width: 3px;
+    transform: scale(1.05);
+    min-height: 550px;
+}
+
+.service-card:nth-child(2):hover {
+    transform: scale(1.06) translateY(-8px);
+}
+
+.service-card:nth-child(2) a {
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+
+.service-card:nth-child(2) a:hover {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+    .services {
+        padding: var(--space-2xl) 0;
+    }
+
+    .services-grid {
+        gap: var(--space-md);
+    }
+
+    .service-card:nth-child(2) {
+        transform: scale(1);
+    }
+
+    .service-card:nth-child(2):hover {
+        transform: translateY(-8px) scale(1.01);
+    }
+}

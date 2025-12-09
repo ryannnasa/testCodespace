@@ -1,0 +1,108 @@
+/* ===========================
+   CUBE CSS - Navigation Bar
+   =========================== */
+
+/* COMPOSITION: Layout container with display: contents */
+
+#navbar-container {
+    display: contents;
+}
+
+/* BLOCK: Navbar sticky component */
+
+.navbar {
+    background: white;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+/* BLOCK: Logo component */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--dark-color);
+    line-height: 1.2;
+}
+
+/* BLOCK: Navigation menu */
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    flex: 1;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+/* UTILITY: Button override in navbar */
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: #8b7b5f;
+    transform: translateY(-2px);
+}
+
+/* EXCEPTION: Mobile responsive */
+
+@media (max-width: 768px) {
+    .nav-wrapper {
+        gap: 20px;
+    }
+
+    .nav-menu {
+        gap: 20px;
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}

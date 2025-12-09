@@ -1,0 +1,86 @@
+/* ===========================
+   CUBE CSS - About Sections
+   =========================== */
+
+/* COMPOSITION: Layout and spacing structure */
+
+.about, .about-intro {
+    padding: var(--space-3xl) 0;
+}
+
+.about-content, .about-intro-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+}
+
+/* UTILITY: Image sizing and typography resets */
+
+.about-image, .about-intro-image {
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img, .about-intro-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text h3, .about-intro-text h2 {
+    margin-bottom: var(--space-lg);
+}
+
+.about-text p, .about-intro-text p {
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+}
+
+/* BLOCK: Benefits list component */
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-lg) 0;
+}
+
+.benefits-list li {
+    padding: var(--space-sm) 0 var(--space-sm) var(--space-2xl);
+    position: relative;
+}
+
+.benefits-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* EXCEPTION: About intro background and responsive */
+
+.about-intro {
+    background: linear-gradient(135deg, rgba(155, 139, 109, 0.05) 0%, rgba(196, 167, 158, 0.05) 100%);
+}
+
+@media (max-width: 768px) {
+    .about, .about-intro {
+        padding: var(--space-2xl) 0;
+    }
+
+    .about-content, .about-intro-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+
+    .about-image, .about-intro-image {
+        height: 300px;
+    }
+
+    .about-intro-text h2 {
+        font-size: var(--text-2xl);
+    }
+}

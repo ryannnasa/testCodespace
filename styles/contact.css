@@ -1,0 +1,100 @@
+/* ===========================
+   CUBE CSS - Contact Section
+   =========================== */
+
+/* COMPOSITION: Layout and spacing structure */
+
+.contact {
+    padding: var(--space-3xl) 0;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+}
+
+/* UTILITY: Typography and spacing resets */
+
+.contact-info h3 {
+    margin-bottom: var(--space-2xl);
+}
+
+.contact-info > div {
+    margin-bottom: var(--space-md);
+}
+
+.contact-info span {
+    display: block;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-sm);
+}
+
+.contact-info p {
+    color: var(--color-text);
+    font-size: var(--text-base);
+    margin: 0;
+}
+
+/* BLOCK: Contact info section */
+
+.contact-info a {
+    color: var(--color-text);
+    text-decoration: none;
+    display: block;
+}
+
+.contact-info a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* BLOCK: Contact form component */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.contact-form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: var(--space-md);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: var(--text-base);
+    color: var(--color-text);
+    transition: border-color var(--transition-base);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(155, 139, 109, 0.1);
+}
+
+.contact-form button {
+    align-self: flex-start;
+}
+
+/* EXCEPTION: Mobile responsive */
+
+@media (max-width: 768px) {
+    .contact {
+        padding: var(--space-2xl) 0;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+}

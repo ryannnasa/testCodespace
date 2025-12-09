@@ -1,0 +1,38 @@
+[
+    {
+        "icon": "🧘",
+        "title": "Séances Individuelles",
+        "description": "Des séances personnalisées adaptées à vos besoins spécifiques pour un accompagnement sur mesure.",
+        "price": "60 min - 50€"
+    },
+    {
+        "icon": "👥",
+        "title": "Séances de Groupe",
+        "description": "Partagez l'expérience de la sophrologie dans un cadre bienveillant et enrichissant avec d'autres personnes.",
+        "price": "60 min - 20€"
+    },
+    {
+        "icon": "💼",
+        "title": "Interventions Entreprise",
+        "description": "Apportez le bien-être et la détente à vos équipes grâce à des sessions de sophrologie en entreprise.",
+        "price": "Sur devis"
+    },
+    {
+        "icon": "🎯",
+        "title": "Préparation Mentale",
+        "description": "Préparez-vous mentalement pour les examens, les entretiens d'embauche ou les événements importants.",
+        "price": "Forfait 3 séances - 120€"
+    },
+    {
+        "icon": "😴",
+        "title": "Gestion du Sommeil",
+        "description": "Retrouvez un sommeil de qualité grâce à des techniques éprouvées de relaxation et de sophrologie.",
+        "price": "Forfait 4 séances - 150€"
+    },
+    {
+        "icon": "🌿",
+        "title": "Bien-être au Naturel",
+        "description": "Une approche holistique combinant sophrologie et pratiques naturelles pour votre mieux-être.",
+        "price": "60 min - 55€"
+    }
+]

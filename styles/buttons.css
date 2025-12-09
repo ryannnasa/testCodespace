@@ -1,0 +1,49 @@
+/* ===========================
+   CUBE CSS - Buttons
+   =========================== */
+
+/* COMPOSITION: Base button reset and transitions */
+
+button, [role="button"], a[href*="#"], .btn {
+    transition: background var(--transition-base), transform var(--transition-fast), box-shadow var(--transition-fast);
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+/* BLOCK: Primary button component */
+
+.btn-primary, button[type="submit"] {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary:hover, button[type="submit"]:hover {
+    background: #8b7b5f;
+    transform: translateY(-2px);
+}
+
+/* BLOCK: Google Reviews button component */
+
+a[href*="google"].btn-google-reviews {
+    background: #4285F4;
+    color: var(--color-white);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+}
+
+a[href*="google"].btn-google-reviews:hover {
+    background: #3367D6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(66, 133, 244, 0.4);
+}
+
