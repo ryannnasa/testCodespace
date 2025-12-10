@@ -1,3 +1,5 @@
+import { loadLocalReviews } from './google-reviews.js';
+
 // Charger les cartes de service depuis JSON
 export async function loadServiceCards() {
     try {
@@ -23,24 +25,13 @@ export async function loadServiceCards() {
     }
 }
 
-// Charger les cartes de témoignage depuis JSON
+// Charger les avis locaux
 export async function loadTestimonialCards() {
     try {
-        const response = await fetch('data/testimonials.json');
-        const testimonials = await response.json();
-        const container = document.getElementById('testimonials-grid');
-        
-        if (container) {
-            const cardTemplate = await fetch('components/testimonial-card.html')
-                .then(r => r.text());
-            
-            container.innerHTML = testimonials.map((testimonial) => {
-                return cardTemplate
-                    .replace('{stars}', testimonial.stars)
-                    .replace('{text}', testimonial.text)
-                    .replace('{author}', testimonial.author);
-            }).join('');
-        }
+        await loadLocalReviews(
+            'testimonials-grid',
+            'components/testimonial-card.html'
+        );
     } catch (error) {
         console.error('Erreur lors du chargement des cartes de témoignage:', error);
     }
