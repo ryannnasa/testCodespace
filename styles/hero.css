@@ -27,13 +27,13 @@
     position: absolute;
     bottom: 50px;
     right: 50px;
-    background: rgba(0, 0, 0, 0.7);
-    color: var(--color-white);
+    background: rgba(var(--color-black-rgb), 0.7);
+    color: rgb(var(--color-white));
     padding: var(--space-lg);
     width: fit-content;
     max-width: 400px;
     z-index: 5;
-    border-left: 4px solid var(--color-white);
+    border-left: 4px solid rgb(var(--color-white));
 }
 
 .hero-quote-overlay p {
@@ -66,5 +66,10 @@
 
     .hero-quote-overlay p {
         font-size: 12px;
+    }
+
+    .hero-cta .btn-secondary {
+        font-size: 16px;
+        padding: 12px 30px;
     }
 }

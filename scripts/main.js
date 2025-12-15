@@ -1,5 +1,5 @@
 import { loadLayoutComponents } from './components-loader.js';
-import { loadServiceCards, loadTestimonialCards } from './cards-loader.js';
+import { loadServiceCards } from './cards-loader.js';
 import { initContactForm } from './form-handler.js';
 import { initScrollAnimations, initSmoothScroll } from './animations.js';
 
@@ -8,12 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Charger les components layout
     loadLayoutComponents();
     
-    // Charger les cartes
-    loadServiceCards();
-    loadTestimonialCards();
+    // Charger les cartes si la page les contient
+    const servicesGrid = document.querySelector('.services-grid');
+    if (servicesGrid) {
+        loadServiceCards();
+    }
     
-    // Initialiser les interactions
-    initContactForm();
+    // Initialiser le formulaire de contact si présent
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        initContactForm();
+    }
+    
+    // Initialiser les animations
     initScrollAnimations();
     initSmoothScroll();
 });

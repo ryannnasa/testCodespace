@@ -15,17 +15,39 @@ button, [role="button"], a[href*="#"], .btn {
 /* BLOCK: Primary button component */
 
 .btn-primary, button[type="submit"] {
-    background: var(--color-primary);
-    color: var(--color-white);
+    background: rgb(var(--color-primary));
+    color: rgb(var(--color-white));
     padding: var(--space-sm) var(--space-lg);
     border-radius: 5px;
     text-decoration: none;
     display: inline-block;
+    box-shadow: 0 4px 12px rgba(var(--color-black-rgb), 0.15);
 }
 
 .btn-primary:hover, button[type="submit"]:hover {
-    background: #8b7b5f;
+    background: rgb(var(--color-primary-dark));
     transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(var(--color-black-rgb), 0.2);
+}
+
+/* BLOCK: Secondary button component (inverted colors) */
+
+.btn-secondary {
+    background: rgba(var(--color-light), var(--opacity));
+    color: rgb(var(--color-primary));
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+    transition: background var(--transition-base), color var(--transition-base), transform var(--transition-fast);
+    box-shadow: 0 4px 12px rgba(var(--color-black-rgb), 0.12);
+}
+
+.btn-secondary:hover {
+    background: rgb(var(--color-secondary));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(var(--color-black-rgb), 0.2);
 }
 
 /* BLOCK: Google Reviews button component */

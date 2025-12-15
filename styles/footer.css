@@ -11,10 +11,10 @@
 /* BLOCK: Footer main component */
 
 .footer {
-    background: #e8dfd2;
+    background: rgb(var(--color-secondary));
     color: var(--dark-color);
     padding: 0;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 -5px 20px rgb(var(--color-black-rgb) / 0.08);
 }
 
 .footer-content {
@@ -87,12 +87,12 @@
 .footer-section a {
     color: var(--dark-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-base), text-decoration var(--transition-base);
     font-size: 15px;
 }
 
 .footer-section a:hover {
-    color: var(--primary-color);
+    color: rgb(var(--color-primary-dark)) !important;
 }
 
 /* BLOCK: Footer contact details */
@@ -111,17 +111,17 @@
 .footer-contact a {
     color: var(--dark-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-base), text-decoration var(--transition-base);
 }
 
 .footer-contact a:hover {
-    color: var(--primary-color);
+    color: var(--color-primary-dark) !important;
 }
 
 /* BLOCK: Footer bottom (legal and credits) */
 
 .footer-bottom {
-    background: #e8dfd2;
+    background: var(--color-footer);
     padding: 15px 0;
     border-top: 0.5px solid var(--text-color);
 }
@@ -138,11 +138,11 @@
 .footer-legal a {
     color: var(--dark-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-base), text-decoration var(--transition-base);
 }
 
 .footer-legal a:hover {
-    color: var(--primary-color);
+    color: #8b7b5f !important;
 }
 
 .footer-credits {

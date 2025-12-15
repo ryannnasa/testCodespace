@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Sara Demange - Sophrologie</title>
+    <link rel="icon" href="data:," />
+    
+    <!-- CUBE CSS - Foundation (variables, resets, base elements) -->
+    <link rel="stylesheet" href="styles/cube.css">
+    
+    <!-- CUBE CSS - Components -->
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    
+    <!-- CUBE CSS - Blocks -->
+    <link rel="stylesheet" href="styles/hero.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="styles/services.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section - Contact -->
+    <section class="hero">
+        <div class="hero-image">
+            <img src="images/contact.png" alt="Sara Demange">
+        </div>
+        <div class="hero-content" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background: rgba(0, 0, 0, 0.2); color: white; text-align: center; z-index: 2;">
+            <h1 style="font-size: 3.5rem; margin-bottom: 20px; color: rgb(var(--color-white));">Contactez-moi</h1>
+            <p style="font-size: 1.3rem; max-width: 600px;">Vous avez des questions ? Je suis là pour vous écouter</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3 style="font-size: 1.8rem; color: #3a3a3a; margin-bottom: 2rem;">Mes Coordonnées</h3>
+                    
+                    <div>
+                        <span>📍 Adresse</span>
+                        <p data-contact="address">Nantes, France<br>Cabinet à proximité de la gare</p>
+                    </div>
+
+                    <div>
+                        <span>📞 Téléphone</span>
+                        <a href="tel:+33695545032" data-contact="phone">+33 6 12 34 56 78</a>
+                    </div>
+
+                    <div>
+                        <span>✉️ Email</span>
+                        <a href="mailto:sara.demange54@gmail.com" data-contact="email">sara@sophrologie-demange.fr</a>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #f0f0f0;">
+                        <h4 style="font-size: 1.2rem; color: #3a3a3a; margin-bottom: 1rem;">Horaires</h4>
+                        <div data-contact="hours">
+                            <p><strong>Lundi - Jeudi :</strong> 09h00 - 19h00</p>
+                            <p><strong>Vendredi :</strong> 09h00 - 18h00</p>
+                            <p><strong>Samedi :</strong> 10h00 - 17h00</p>
+                            <p><strong>Dimanche :</strong> Fermé</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #f0f0f0;">
+                        <h4 style="font-size: 1.2rem; color: #3a3a3a; margin-bottom: 1rem;">Durée des séances</h4>
+                        <p><strong>Première consultation :</strong> 60 minutes</p>
+                        <p><strong>Séances régulières :</strong> 45-60 minutes</p>
+                        <p><strong>Séances de groupe :</strong> 60 minutes</p>
+                    </div>
+
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #f0f0f0;">
+                        <h4 style="font-size: 1.2rem; color: #3a3a3a; margin-bottom: 1rem;">Modalités de paiement</h4>
+                        <p>💳 Carte bancaire</p>
+                        <p>💰 Espèces</p>
+                        <p>📱 Virement bancaire</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div>
+                    <h3 style="font-size: 1.8rem; color: #3a3a3a; margin-bottom: 2rem;">Envoyez-moi un message</h3>
+                    <form class="contact-form" id="contact-form">
+                        <div>
+                            <label for="name" style="margin-bottom: 0.5rem; font-weight: 600; color: #3a3a3a;">Votre nom *</label>
+                            <input type="text" id="name" name="name" required placeholder="Jean Dupont" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                        </div>
+
+                        <div>
+                            <label for="email" style="margin-bottom: 0.5rem; font-weight: 600; color: #3a3a3a;">Votre email *</label>
+                            <input type="email" id="email" name="email" required placeholder="votre.email@exemple.com" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                        </div>
+
+                        <div>
+                            <label for="phone" style="margin-bottom: 0.5rem; font-weight: 600; color: #3a3a3a;">Votre téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+33 6 12 34 56 78" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                        </div>
+
+                        <div>
+                            <label for="subject" style="margin-bottom: 0.5rem; font-weight: 600; color: #3a3a3a;">Sujet *</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Demande de prise de rendez-vous" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                        </div>
+
+                        <div>
+                            <label for="service" style="margin-bottom: 0.5rem; font-weight: 600; color: #3a3a3a;">Prestation intéressée</label>
+                            <select id="service" name="service" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; font-family: inherit;">
+                                <option value="">-- Sélectionnez une prestation --</option>
+                                <option value="adolescents">Sophrologie pour les adolescents</option>
+                                <option value="adultes">Sophrologie pour les adultes</option>
+                                <option value="enfants">Sophrologie pour les enfants</option>
+                                <option value="sommeil">Gestion du sommeil</option>
+                                <option value="mental">Préparation mentale</option>
+                                <option value="stress">Gestion du stress</option>
+                                <option value="groupe">Séances de groupe</option>
+                                <option value="developpement">Développement personnel</option>
+                                <option value="distance">Séances à distance</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="message" style="margin-bottom: 0.5rem; font-weight: 600; color: #3a3a3a;">Votre message *</label>
+                            <textarea id="message" name="message" required placeholder="Dites-moi comment je peux vous aider..." rows="6" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; resize: vertical; font-family: inherit;"></textarea>
+                        </div>
+
+                        <button type="submit" style="background: #9b8b6d; color: white; padding: 0.8rem 2rem; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; margin-top: 1rem; transition: all 0.3s ease; font-size: 1rem;">
+                            Envoyer le message
+                        </button>
+
+                        <p style="font-size: 0.9rem; color: #4a4a4a; margin-top: 1rem;">* Champs obligatoires</p>
+                    </form>
+
+                    <div id="form-message" style="margin-top: 1.5rem; padding: 1rem; border-radius: 8px; display: none; font-weight: 600;"></div>
+                </div>
+            </div>
+
+            <!-- Google Maps Embed -->
+            <div style="margin-top: 4rem; padding-top: 4rem; border-top: 2px solid #f0f0f0;">
+                <h3 style="font-size: 1.8rem; color: #3a3a3a; margin-bottom: 2rem;">Me localiser</h3>
+                <div style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.3247!2d-1.5368923!3d47.1914439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480b3e5e5e5e5e5d%3A0x5816f6bf818afafc!2sSara%20Demange%20-%20Sophrologie!5e0!3m2!1sfr!2sfr!4v1702164000000" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-contact="maps"></iframe>
+                </div>
+                <p style="color: #4a4a4a; margin-top: 1rem; text-align: center;">Cabinet à proximité de la gare de Nantes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="scripts/contact-loader.js"></script>
+    <script src="scripts/form-handler.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>

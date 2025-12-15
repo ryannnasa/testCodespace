@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qui suis-je ? - Sara Demange - Sophrologie</title>
+    <link rel="icon" href="data:," />
+    
+    <!-- CUBE CSS - Foundation (variables, resets, base elements) -->
+    <link rel="stylesheet" href="styles/cube.css">
+    
+    <!-- CUBE CSS - Components -->
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/buttons.css">
+    
+    <!-- CUBE CSS - Blocks -->
+    <link rel="stylesheet" href="styles/hero.css">
+    <link rel="stylesheet" href="styles/about.css">
+    <link rel="stylesheet" href="styles/services.css">
+    <link rel="stylesheet" href="styles/contact.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar Component -->
+    <div id="navbar-container"></div>
+
+    <!-- Hero Section - Qui suis-je -->
+    <section class="hero">
+        <div class="hero-image">
+            <img src="images/aboutHero.jpeg" alt="Sara Demange">
+        </div>
+        <div class="hero-content" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background: rgba(0, 0, 0, 0.2); color: rgb(var(--color-white)); text-align: center; z-index: 2;">
+            <h1 style="font-size: 3.5rem; margin-bottom: 20px; color: rgb(var(--color-white));">Qui suis-je ?</h1>
+            <p style="font-size: 1.3rem; max-width: 600px;">Découvrez mon parcours et ma passion pour la sophrologie</p>
+        </div>
+    </section>
+
+    <!-- Présentation Section -->
+    <section class="about-intro">
+        <div class="container">
+            <div class="about-intro-content">
+                <div class="about-intro-text">
+                    <h2>Sara Demange</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">Bienvenue ! Je suis sophrologue à Nantes, passionnée par l'accompagnement des personnes dans leur quête de bien-être et d'équilibre.</p>
+                    <p>Après plusieurs années de recherche personnelle sur le sens du bien-être, j'ai découvert la sophrologie comme un véritable outil de transformation. Cette discipline m'a permis de surmonter mes propres défis, et j'ai à cœur de transmettre ces bénéfices à mes clients.</p>
+                    <p>Mon approche est personnalisée, bienveillante et basée sur l'écoute active. Chaque séance est adaptée à vos besoins spécifiques, qu'il s'agisse de gestion du stress, confiance en soi, sommeil ou développement personnel.</p>
+                </div>
+                <div class="about-intro-image">
+                    <img src="images/sara.png" alt="Sara Demange - Sophrologue">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parcours Section -->
+    <section class="parcours" style="padding: 6rem 0; background: #f5f5f5;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mon Parcours</h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <!-- Formation Card -->
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); border-left: 4px solid #9b8b6d;">
+                    <h3 style="color: #9b8b6d; margin-bottom: 1rem; font-size: 1.2rem;">📚 Formation</h3>
+                    <p style="margin: 0; line-height: 1.8; color: #4a4a4a;">
+                        <strong>Diplôme de Sophrologue</strong><br>
+                        Formation complète de 1200 heures<br>
+                        Approche holistique et scientifique
+                    </p>
+                </div>
+
+                <!-- Expérience Card -->
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); border-left: 4px solid #9b8b6d;">
+                    <h3 style="color: #9b8b6d; margin-bottom: 1rem; font-size: 1.2rem;">💼 Expérience</h3>
+                    <p style="margin: 0; line-height: 1.8; color: #4a4a4a;">
+                        <strong>10+ ans d'expérience</strong><br>
+                        Travail avec des adultes, adolescents et enfants<br>
+                        Interventions en entreprise
+                    </p>
+                </div>
+
+                <!-- Spécialisation Card -->
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); border-left: 4px solid #9b8b6d;">
+                    <h3 style="color: #9b8b6d; margin-bottom: 1rem; font-size: 1.2rem;">🎯 Spécialisations</h3>
+                    <p style="margin: 0; line-height: 1.8; color: #4a4a4a;">
+                        <strong>Domaines d'expertise</strong><br>
+                        Gestion du stress et anxiété<br>
+                        Préparation mentale et confiance
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophie Section -->
+    <section class="philosophie" style="padding: 6rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ma Philosophie</h2>
+                <p style="text-align: center; font-size: 1.1rem; color: #4a4a4a; margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Mes principes fondamentaux pour vous accompagner vers le bien-être
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <!-- Écoute -->
+                <div style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">👂</div>
+                    <h3 style="margin-bottom: 1rem;">Écoute Active</h3>
+                    <p style="color: #4a4a4a; line-height: 1.6;">Je vous écoute vraiment pour comprendre vos besoins profonds et adapter ma pratique à votre singularité.</p>
+                </div>
+
+                <!-- Bienveillance -->
+                <div style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💜</div>
+                    <h3 style="margin-bottom: 1rem;">Bienveillance</h3>
+                    <p style="color: #4a4a4a; line-height: 1.6;">Un espace sûr et sans jugement où vous pouvez vous exprimer et progresser à votre rythme.</p>
+                </div>
+
+                <!-- Authenticité -->
+                <div style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">✨</div>
+                    <h3 style="margin-bottom: 1rem;">Authenticité</h3>
+                    <p style="color: #4a4a4a; line-height: 1.6;">Une approche honnête et personnalisée, basée sur des techniques éprouvées et adaptées à vous.</p>
+                </div>
+
+                <!-- Empowerment -->
+                <div style="text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌟</div>
+                    <h3 style="margin-bottom: 1rem;">Empowerment</h3>
+                    <p style="color: #4a4a4a; line-height: 1.6;">Vous devenir acteur de votre bien-être et découvrir votre potentiel caché.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approche Section -->
+    <section class="approche" style="padding: 6rem 0; background: linear-gradient(135deg, rgba(155, 139, 109, 0.05) 0%, rgba(196, 167, 158, 0.05) 100%);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div>
+                    <h2 style="margin-bottom: 2rem;">Ma Méthode de Travail</h2>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="color: #9b8b6d; margin-bottom: 0.5rem;">1. Diagnostic Initial</h3>
+                            <p style="color: #4a4a4a; margin: 0;">Une première séance pour comprendre vos objectifs et vos défis.</p>
+                        </div>
+                        <div>
+                            <h3 style="color: #9b8b6d; margin-bottom: 0.5rem;">2. Création du Plan</h3>
+                            <p style="color: #4a4a4a; margin: 0;">Nous élaborons ensemble un programme adapté à vos besoins.</p>
+                        </div>
+                        <div>
+                            <h3 style="color: #9b8b6d; margin-bottom: 0.5rem;">3. Séances Progressives</h3>
+                            <p style="color: #4a4a4a; margin: 0;">Des techniques variées pour une progression mesurable et durable.</p>
+                        </div>
+                        <div>
+                            <h3 style="color: #9b8b6d; margin-bottom: 0.5rem;">4. Suivi et Adaptation</h3>
+                            <p style="color: #4a4a4a; margin: 0;">Ajustements réguliers pour assurer votre satisfaction et vos progrès.</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);">
+                    <img src="images/home.webp" alt="Approche" style="width: 100%; border-radius: 10px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 4rem 0; background: white; text-align: center;">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem;">Prêt à commencer ?</h2>
+            <p style="font-size: 1.1rem; color: #4a4a4a; margin-bottom: 2rem;">Je serais ravi de vous accueillir pour une première séance</p>
+            <a href="https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes" target="_blank" class="btn-primary" style="display: inline-block;">Prendre rendez-vous</a>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <script src="scripts/contact-loader.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>

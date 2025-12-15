@@ -1,5 +1,3 @@
-import { loadLocalReviews } from './google-reviews.js';
-
 // Charger les cartes de service depuis JSON
 export async function loadServiceCards() {
     try {
@@ -17,22 +15,12 @@ export async function loadServiceCards() {
                     .replace('{icon}', service.icon)
                     .replace('{title}', service.title)
                     .replace('{description}', service.description)
-                    .replace('{price}', service.price);
+                    .replace('{price}', service.price)
+                    .replace('{cta_text}', service.cta_text)
+                    .replace('{cta_link}', service.cta_link);
             }).join('');
         }
     } catch (error) {
         console.error('Erreur lors du chargement des cartes de service:', error);
-    }
-}
-
-// Charger les avis locaux
-export async function loadTestimonialCards() {
-    try {
-        await loadLocalReviews(
-            'testimonials-grid',
-            'components/testimonial-card.html'
-        );
-    } catch (error) {
-        console.error('Erreur lors du chargement des cartes de témoignage:', error);
     }
 }

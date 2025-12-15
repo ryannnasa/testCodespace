@@ -1,0 +1,52 @@
+{
+  "themes": [
+    {
+      "id": "sommeil",
+      "title": "Gestion du Sommeil",
+      "emoji": "😴",
+      "description": "Retrouvez un sommeil de qualité avec des techniques de relaxation et sophrologie éprouvées. Idéal pour tous ceux qui souffrent d'insomnies ou de troubles du sommeil.",
+      "pricing": "Forfait 4 séances - 150€",
+      "cta": "En savoir plus"
+    },
+    {
+      "id": "preparation-mentale",
+      "title": "Préparation Mentale",
+      "emoji": "🎯",
+      "description": "Préparez-vous aux examens, entretiens d'embauche ou événements importants avec confiance et sérénité. Techniques éprouvées pour une performance optimale.",
+      "pricing": "Forfait 3 séances - 120€",
+      "cta": "En savoir plus"
+    },
+    {
+      "id": "gestion-stress",
+      "title": "Gestion du Stress",
+      "emoji": "💪",
+      "description": "Apprenez à gérer votre stress et votre anxiété pour une vie plus sereine et équilibrée. Des outils concrets pour retrouver la tranquillité.",
+      "pricing": "Forfait 5 séances - 200€",
+      "cta": "En savoir plus"
+    },
+    {
+      "id": "seances-groupe",
+      "title": "Séances de Groupe",
+      "emoji": "👥",
+      "description": "Partagez une expérience collective bienveillante avec d'autres personnes dans un cadre sécurisant. Une approche enrichissante et motivante.",
+      "pricing": "60 min - 20€",
+      "cta": "En savoir plus"
+    },
+    {
+      "id": "developpement-personnel",
+      "title": "Développement Personnel",
+      "emoji": "🧠",
+      "description": "Travaillez sur la confiance en soi, l'estime personnelle et la réalisation de vos objectifs. Un accompagnement personnalisé pour votre épanouissement.",
+      "pricing": "À la carte",
+      "cta": "En savoir plus"
+    },
+    {
+      "id": "seances-distance",
+      "title": "Séances à Distance",
+      "emoji": "🎧",
+      "description": "Bénéficiez de sophrologie depuis chez vous en visio, avec la même qualité et efficacité qu'en présentiel. Flexibilité et confort au rendez-vous.",
+      "pricing": "Même tarif qu'en présentiel",
+      "cta": "En savoir plus"
+    }
+  ]
+}
