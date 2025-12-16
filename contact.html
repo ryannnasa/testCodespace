@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://formspree.io https://cdn.formspree.io 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://api.formspree.io; frame-src https://www.google.com https://formspree.io; worker-src blob: https://formspree.io;">
     <title>Contact - Sara Demange - Sophrologie</title>
     <link rel="icon" href="data:," />
     
@@ -112,15 +113,15 @@
                             <label for="service" style="margin-bottom: 0.5rem; font-weight: 600; color: #3a3a3a;">Prestation intéressée</label>
                             <select id="service" name="service" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; font-family: inherit;">
                                 <option value="">-- Sélectionnez une prestation --</option>
-                                <option value="adolescents">Sophrologie pour les adolescents</option>
-                                <option value="adultes">Sophrologie pour les adultes</option>
-                                <option value="enfants">Sophrologie pour les enfants</option>
-                                <option value="sommeil">Gestion du sommeil</option>
-                                <option value="mental">Préparation mentale</option>
-                                <option value="stress">Gestion du stress</option>
-                                <option value="groupe">Séances de groupe</option>
-                                <option value="developpement">Développement personnel</option>
-                                <option value="distance">Séances à distance</option>
+                                <option value="Sophrologie pour les adolescents">Sophrologie pour les adolescents</option>
+                                <option value="Sophrologie pour les adultes">Sophrologie pour les adultes</option>
+                                <option value="Sophrologie pour les enfants">Sophrologie pour les enfants</option>
+                                <option value="Gestion du sommeil">Gestion du sommeil</option>
+                                <option value="Préparation mentale">Préparation mentale</option>
+                                <option value="Gestion du stress">Gestion du stress</option>
+                                <option value="Séances de groupe">Séances de groupe</option>
+                                <option value="Développement personnel">Développement personnel</option>
+                                <option value="Séances à distance">Séances à distance</option>
                             </select>
                         </div>
 
@@ -136,7 +137,7 @@
                         <p style="font-size: 0.9rem; color: #4a4a4a; margin-top: 1rem;">* Champs obligatoires</p>
                     </form>
 
-                    <div id="form-message" style="margin-top: 1.5rem; padding: 1rem; border-radius: 8px; display: none; font-weight: 600;"></div>
+                    <div id="form-message" style="margin-top: 1.5rem; padding: 1rem; border-radius: 8px; display: none; font-weight: 600; text-align: center;"></div>
                 </div>
             </div>
 
@@ -155,8 +156,6 @@
     <div id="footer-container"></div>
 
     <!-- Scripts -->
-    <script src="scripts/contact-loader.js"></script>
-    <script src="scripts/form-handler.js"></script>
     <script type="module" src="scripts/main.js"></script>
 </body>
 </html>

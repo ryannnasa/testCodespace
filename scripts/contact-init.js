@@ -1,14 +1,45 @@
+import { loadComponent, loadLayoutComponents } from './components-loader.js';
+import { initScrollAnimations, initSmoothScroll } from './animations.js';
+
+// Attendre que EmailJS soit disponible
+function waitForEmailJS() {
+    return new Promise((resolve) => {
+        function check() {
+            if (typeof emailjs !== 'undefined') {
+                resolve();
+            } else {
+                setTimeout(check, 50);
+            }
+        }
+        check();
+    });
+}
+
 // Gérer le formulaire de contact avec EmailJS
 function initContactForm() {
+    console.log('✓ initContactForm appelée');
     const contactForm = document.querySelector('.contact-form');
     const formMessage = document.getElementById('form-message');
     
+    console.log('Form element:', contactForm);
+    console.log('Message element:', formMessage);
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
+            console.log('✓ Submit event triggered');
             e.preventDefault();
             
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
+            
+            console.log('Form values:', {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            });
             
             // État d'envoi
             submitBtn.textContent = 'Envoi en cours...';
@@ -17,18 +48,21 @@ function initContactForm() {
             
             // Préparer les données du formulaire
             const templateParams = {
-                to_email: 'sara.demange54@gmail.com',
-                from_name: document.getElementById('name').value,
-                from_email: document.getElementById('email').value,
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value || 'Non fourni',
                 subject: document.getElementById('subject').value,
                 service: document.getElementById('service').value || 'Non sélectionné',
                 message: document.getElementById('message').value
             };
             
-            // Envoyer via EmailJS
+            console.log('EmailJS available?', typeof emailjs);
+            console.log('Sending with params:', templateParams);
+            
+            // Envoyer via EmailJS avec .then()
             emailjs.send('service_cbo3nxc', 'template_doszmkd', templateParams)
                 .then(() => {
+                    console.log('✓ Email envoyé avec succès');
                     // Succès
                     submitBtn.textContent = 'Message envoyé ! ✓';
                     submitBtn.style.background = '#4CAF50';
@@ -53,7 +87,7 @@ function initContactForm() {
                 })
                 .catch((error) => {
                     // Erreur
-                    console.error('Erreur EmailJS:', error);
+                    console.error('✗ Erreur EmailJS:', error);
                     submitBtn.textContent = 'Erreur lors de l\'envoi';
                     submitBtn.style.background = '#dc3545';
                     
@@ -72,5 +106,35 @@ function initContactForm() {
                     }, 3000);
                 });
         });
+    } else {
+        console.warn('⚠ Contact form not found');
     }
 }
+
+// Initialiser tous les modules au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('✓ DOMContentLoaded triggered');
+    
+    // Charger les components layout
+    loadLayoutComponents()
+        .then(() => {
+            console.log('✓ Components loaded');
+            // Attendre que EmailJS soit prêt
+            return waitForEmailJS();
+        })
+        .then(() => {
+            console.log('✓ EmailJS ready');
+            // Initialiser le formulaire de contact si présent
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                initContactForm();
+            }
+            
+            // Initialiser les animations
+            initScrollAnimations();
+            initSmoothScroll();
+        })
+        .catch((error) => {
+            console.error('✗ Erreur lors du chargement:', error);
+        });
+});
