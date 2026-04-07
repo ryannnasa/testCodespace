@@ -5,24 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Administration du site</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f6f6f6;
+      color: #222;
+    }
+
+    .admin-identity-fallback {
+      text-align: center;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 460px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .admin-identity-fallback button {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 18px;
+      background: #0d6efd;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  <div id="identity-fallback" class="admin-identity-fallback">
+    <p>Si la fenetre de connexion ne s'ouvre pas automatiquement:</p>
+    <button id="identity-login" type="button">Se connecter</button>
+  </div>
+
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     (function () {
       var hash = window.location.hash || '';
       var hasIdentityToken = /(?:invite_token|recovery_token|confirmation_token)=/.test(hash);
+      var fallback = document.getElementById('identity-fallback');
+      var loginButton = document.getElementById('identity-login');
+
+      function hideFallback() {
+        if (fallback) fallback.style.display = 'none';
+      }
+
+      function openIdentity(mode) {
+        if (!window.netlifyIdentity) return;
+        window.netlifyIdentity.open(mode || 'login');
+      }
+
+      function loadCms() {
+        if (window.__decapCmsLoaded) return;
+        window.__decapCmsLoaded = true;
+
+        var script = document.createElement('script');
+        script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
+        document.body.appendChild(script);
+      }
+
+      if (loginButton) {
+        loginButton.addEventListener('click', function () {
+          openIdentity('login');
+        });
+      }
 
       if (window.netlifyIdentity) {
-        window.netlifyIdentity.on('init', function () {
-          if (hasIdentityToken) {
-            window.netlifyIdentity.open();
+        window.netlifyIdentity.on('init', function (user) {
+          if (user) {
+            hideFallback();
           }
+
+          if (hasIdentityToken) {
+            openIdentity();
+          }
+
+          loadCms();
         });
+
+        window.netlifyIdentity.on('login', function () {
+          hideFallback();
+          window.location.href = '/admin/';
+        });
+
+        window.netlifyIdentity.on('signup', function () {
+          hideFallback();
+        });
+
         window.netlifyIdentity.init();
+
+        if (hasIdentityToken) {
+          setTimeout(function () {
+            openIdentity();
+          }, 250);
+        }
+      } else {
+        loadCms();
       }
     })();
   </script>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
