@@ -8,88 +8,75 @@
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <div id="debug" style="position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.9); color: lime; font-family: monospace; font-size: 12px; padding: 20px; min-width: 400px; max-height: 100vh; overflow: auto; z-index: 99999;">
-    <h3 style="color: yellow;">DEBUG INFO</h3>
-    <div id="debug-output"></div>
-  </div>
-
   <script>
-    var debugOutput = document.getElementById('debug-output');
-    
-    function log(message) {
-      console.log(message);
-      var line = document.createElement('div');
-      line.textContent = message;
-      debugOutput.appendChild(line);
-    }
-
-    log('Location: ' + window.location.href);
-    log('Hash: ' + window.location.hash);
-    log('Search: ' + window.location.search);
-    log('netlifyIdentity disponible: ' + (!!window.netlifyIdentity));
-    
-    // Attendre que Netlify Identity soit chargé
-    setTimeout(function() {
-      log('Après 100ms - netlifyIdentity: ' + (!!window.netlifyIdentity));
+    (function () {
+      // Vérifier si on a un token d'invitation/recovery dans le hash
+      var hasInviteToken = /#invite_token=/.test(window.location.hash);
+      var hasRecoveryToken = /#recovery_token=/.test(window.location.hash);
       
-      if (window.netlifyIdentity) {
-        log('Initializing netlifyIdentity...');
-        
-        window.netlifyIdentity.on('init', function(user) {
-          log('Identity init event - user: ' + (user ? user.email : 'null'));
+      function loadCms() {
+        if (window.__decapCmsLoaded) return;
+        window.__decapCmsLoaded = true;
+
+        var script = document.createElement('script');
+        script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
+        document.body.appendChild(script);
+      }
+
+      function initializeNetlifyIdentity() {
+        if (!window.netlifyIdentity) {
           loadCms();
-          
+          return;
+        }
+
+        // Événement d'initialisation
+        window.netlifyIdentity.on('init', function (user) {
           if (!user) {
-            log('No user found, opening identity widget');
-            window.netlifyIdentity.open();
+            // Pas d'utilisateur connecté
+            if (hasInviteToken) {
+              // Mode d'invitation - le widget doit permettre de créer un mot de passe
+              window.netlifyIdentity.open('signup');
+            } else if (hasRecoveryToken) {
+              // Mode de récupération de mot de passe
+              window.netlifyIdentity.open('recovery');
+            } else {
+              // Connexion normale
+              window.netlifyIdentity.open('login');
+            }
+          } else {
+            // Utilisateur déjà connecté, charger le CMS
+            loadCms();
           }
         });
 
-        window.netlifyIdentity.on('login', function(user) {
-          log('Login event - user: ' + (user ? user.email : 'unknown'));
+        // Événement de connexion
+        window.netlifyIdentity.on('login', function (user) {
+          loadCms();
+        });
+
+        // Événement de déconnexion
+        window.netlifyIdentity.on('logout', function () {
           window.location.href = '/admin/';
         });
 
-        window.netlifyIdentity.on('logout', function() {
-          log('Logout event');
-          window.location.href = '/admin/';
-        });
-
-        window.netlifyIdentity.on('error', function(err) {
-          log('Identity error: ' + JSON.stringify(err));
-        });
-
-        log('Calling netlifyIdentity.init()');
+        // Initialiser Netlify Identity
         window.netlifyIdentity.init();
+      }
+
+      // Initialiser quand le DOM est prêt
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeNetlifyIdentity);
       } else {
-        log('ERROR: netlifyIdentity not loaded after 100ms!');
-        loadCms();
+        initializeNetlifyIdentity();
       }
-    }, 100);
 
-    function loadCms() {
-      if (window.__decapCmsLoaded) return;
-      window.__decapCmsLoaded = true;
-      
-      log('Loading Decap CMS...');
-      var script = document.createElement('script');
-      script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
-      script.onload = function() {
-        log('Decap CMS loaded');
-      };
-      script.onerror = function() {
-        log('ERROR loading Decap CMS');
-      };
-      document.body.appendChild(script);
-    }
-
-    // Fallback timeout
-    setTimeout(function() {
-      if (!window.__decapCmsLoaded) {
-        log('Fallback: Loading CMS after 5s timeout');
-        loadCms();
-      }
-    }, 5000);
+      // Timeout fallback
+      setTimeout(function () {
+        if (!window.__decapCmsLoaded && !window.netlifyIdentity) {
+          loadCms();
+        }
+      }, 5000);
+    })();
   </script>
 </body>
 </html>
