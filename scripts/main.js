@@ -4,10 +4,15 @@ import { initScrollAnimations, initSmoothScroll } from './animations.js';
 
 function redirectIdentityTokensToAdmin() {
     const hash = window.location.hash || '';
-    const hasIdentityToken = /(?:invite_token|recovery_token|confirmation_token)=/.test(hash);
+    const search = window.location.search || '';
+    const tokenPattern = /(?:invite_token|recovery_token|confirmation_token)=/;
+    const hasIdentityToken = tokenPattern.test(hash) || tokenPattern.test(search);
 
     if (hasIdentityToken && !window.location.pathname.startsWith('/admin')) {
-        window.location.href = `/admin/${hash}`;
+        const tokenFragment = tokenPattern.test(hash)
+            ? hash
+            : `#${search.replace(/^\?/, '')}`;
+        window.location.replace(`/admin/${tokenFragment}`);
     }
 }
 
