@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Editeur visuel - Admin</title>
+  <link rel="stylesheet" href="../styles/admin-live-editor.css">
+</head>
+<body>
+  <header class="live-header">
+    <div>
+      <h1>Editeur visuel</h1>
+      <p>Edition de tout le contenu visible: textes, liens et images.</p>
+    </div>
+    <div class="live-header-actions">
+      <a href="/admin/" class="btn-link">Decap CMS</a>
+      <a href="/" class="btn-link" target="_blank" rel="noreferrer">Voir le site</a>
+    </div>
+  </header>
+
+  <main class="live-layout">
+    <aside class="editor-panel" id="editor-panel">
+      <section class="editor-card">
+        <h2>Page a editer</h2>
+        <div class="field-row">
+          <label for="page-path">Chemin</label>
+          <div class="inline-controls">
+            <input id="page-path" type="text" value="/index.html">
+            <button id="load-page" type="button" class="btn-action">Charger</button>
+          </div>
+        </div>
+        <p class="hint">Exemples: /index.html, /about.html, /services.html, /contact.html.</p>
+      </section>
+
+      <section class="editor-card">
+        <h2>Elements detectes</h2>
+        <p class="hint">Header et footer sont inclus apres leur chargement.</p>
+        <div id="editor-fields"></div>
+      </section>
+
+      <section class="editor-card">
+        <h2>Interaction</h2>
+        <p class="hint">Cliquer dans l'apercu a droite met en focus le champ lie a gauche.</p>
+      </section>
+    </aside>
+
+    <section class="preview-panel">
+      <iframe id="preview-frame" title="Apercu du site" src="/index.html?admin_preview=1"></iframe>
+    </section>
+  </main>
+
+  <script type="module" src="../scripts/admin-live-editor.js"></script>
+</body>
+</html>

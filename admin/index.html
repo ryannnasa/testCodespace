@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Administration du site</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script defer src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <style>
     html, body {
       min-height: 100%;
@@ -35,16 +35,27 @@
 <body>
   <div id="admin-status" role="status" aria-live="polite">
     Chargement de l’administration…
+    <div style="margin-top: 0.75rem;">
+      <a href="/admin/live.html" style="color: #2f2a25; font-size: 0.9rem;">Ouvrir l'editeur visuel</a>
+    </div>
   </div>
   <script>
     (function () {
       var statusElement = document.getElementById('admin-status');
       var hasInviteToken = /(?:^|[#&])invite_token=/.test(window.location.hash);
       var hasRecoveryToken = /(?:^|[#&])recovery_token=/.test(window.location.hash);
+      var isCodespacesHost = /\.app\.github\.dev$/.test(window.location.hostname);
+      var isLocalDev = /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname) || isCodespacesHost || /[?&]local=1(?:&|$)/.test(window.location.search);
 
       function setStatus(message) {
         if (statusElement) {
           statusElement.textContent = message;
+        }
+      }
+
+      function hideStatus() {
+        if (statusElement && statusElement.parentNode) {
+          statusElement.parentNode.removeChild(statusElement);
         }
       }
 
@@ -63,6 +74,11 @@
       }
 
       function initializeNetlifyIdentity() {
+        if (isLocalDev) {
+          hideStatus();
+          return;
+        }
+
         // Attendre que window.netlifyIdentity soit disponible
         var retries = 0;
         var maxRetries = 50; // 5 secondes max

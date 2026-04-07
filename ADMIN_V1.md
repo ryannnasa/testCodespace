@@ -32,6 +32,28 @@ Les modifications seront publiees sur le site en ligne apres commit Git via Deca
 
 Le commit est pousse sur `main`, puis Netlify redeploie automatiquement le site.
 
+## Mode local
+
+Pour tester l'admin sans aller-retour avec Netlify, utilisez le mode local de Decap CMS.
+
+1. Lancer un serveur statique pour le site, par exemple `python3 -m http.server 8000` depuis la racine du projet.
+2. Lancer le proxy local Decap CMS, par exemple `npx decap-server`.
+3. Ouvrir `http://localhost:8000/admin/`.
+
+En mode local, l'interface admin ne passe pas par Netlify Identity. Le but est de valider le fonctionnement du CMS et l'édition des fichiers JSON en local avant de revenir sur le flux d'invitation en ligne.
+
+## Editeur visuel (beta)
+
+Une page d'edition visuelle est disponible sur `/admin/live.html`.
+
+- A gauche: champs de saisie (contact, prestations, images d'apercu)
+- A droite: apercu en direct de la page d'accueil
+- Cliquer un texte ou une image dans l'apercu met le focus sur le champ correspondant
+
+Notes:
+- Les champs Contact et Prestations correspondent aux donnees JSON du projet.
+- Les champs Images sont pour l'apercu en direct (pas d'ecriture automatique de fichier).
+
 ## Notes
 
 - Le dossier des uploads est configure sur `images/uploads`.

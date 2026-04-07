@@ -2,6 +2,14 @@ backend:
   name: git-gateway
   branch: main
 
+local_backend:
+  url: https://vigilant-lamp-r47975j99x4vc5rrj-8081.app.github.dev/api/v1
+  allowed_hosts:
+    - localhost
+    - 127.0.0.1
+    - app.github.dev
+    - vigilant-lamp-r47975j99x4vc5rrj-8000.app.github.dev
+
 site_url: https://sarademange-sophrologie-nantes.netlify.app
 
 auth:
