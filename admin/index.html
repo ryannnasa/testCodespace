@@ -57,7 +57,11 @@
 
       function openIdentity(mode) {
         if (!window.netlifyIdentity) return;
-        window.netlifyIdentity.open(mode || 'login');
+        if (mode) {
+          window.netlifyIdentity.open(mode);
+        } else {
+          window.netlifyIdentity.open();
+        }
       }
 
       function loadCms() {
