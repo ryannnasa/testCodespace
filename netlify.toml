@@ -1,0 +1,27 @@
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[build]
+  publish = "."
+  command = ""
+
+[context.production]
+  environment = { ACCESS_CONTROL_ALLOW_ORIGIN = "*" }
+
+[[headers]]
+  for = "/admin/index.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"

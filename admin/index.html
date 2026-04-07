@@ -5,58 +5,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Administration du site</title>
-  <!-- Netlify Identity nécessaire pour l'authentification -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+  <div id="debug" style="position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.9); color: lime; font-family: monospace; font-size: 12px; padding: 20px; min-width: 400px; max-height: 100vh; overflow: auto; z-index: 99999;">
+    <h3 style="color: yellow;">DEBUG INFO</h3>
+    <div id="debug-output"></div>
+  </div>
+
   <script>
-    (function () {
-      // Attendre que le widget Netlify Identity soit chargé
+    var debugOutput = document.getElementById('debug-output');
+    
+    function log(message) {
+      console.log(message);
+      var line = document.createElement('div');
+      line.textContent = message;
+      debugOutput.appendChild(line);
+    }
+
+    log('Location: ' + window.location.href);
+    log('Hash: ' + window.location.hash);
+    log('Search: ' + window.location.search);
+    log('netlifyIdentity disponible: ' + (!!window.netlifyIdentity));
+    
+    // Attendre que Netlify Identity soit chargé
+    setTimeout(function() {
+      log('Après 100ms - netlifyIdentity: ' + (!!window.netlifyIdentity));
+      
       if (window.netlifyIdentity) {
-        // Initialiser l'authentification Netlify
-        window.netlifyIdentity.init();
+        log('Initializing netlifyIdentity...');
         
-        // Écouter l'initialisation
-        window.netlifyIdentity.on('init', function (user) {
-          // Charger Decap CMS
+        window.netlifyIdentity.on('init', function(user) {
+          log('Identity init event - user: ' + (user ? user.email : 'null'));
           loadCms();
           
-          // Si pas d'utilisateur connecté et URL contient token, ouvrir le widget
           if (!user) {
+            log('No user found, opening identity widget');
             window.netlifyIdentity.open();
           }
         });
 
-        // Rediriger après connexion
-        window.netlifyIdentity.on('login', function () {
+        window.netlifyIdentity.on('login', function(user) {
+          log('Login event - user: ' + (user ? user.email : 'unknown'));
           window.location.href = '/admin/';
         });
 
-        // Rediriger après déconnexion
-        window.netlifyIdentity.on('logout', function () {
+        window.netlifyIdentity.on('logout', function() {
+          log('Logout event');
           window.location.href = '/admin/';
         });
+
+        window.netlifyIdentity.on('error', function(err) {
+          log('Identity error: ' + JSON.stringify(err));
+        });
+
+        log('Calling netlifyIdentity.init()');
+        window.netlifyIdentity.init();
       } else {
-        // Fallback si Identity n'est pas disponible
+        log('ERROR: netlifyIdentity not loaded after 100ms!');
         loadCms();
       }
+    }, 100);
 
-      function loadCms() {
-        if (window.__decapCmsLoaded) return;
-        window.__decapCmsLoaded = true;
+    function loadCms() {
+      if (window.__decapCmsLoaded) return;
+      window.__decapCmsLoaded = true;
+      
+      log('Loading Decap CMS...');
+      var script = document.createElement('script');
+      script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
+      script.onload = function() {
+        log('Decap CMS loaded');
+      };
+      script.onerror = function() {
+        log('ERROR loading Decap CMS');
+      };
+      document.body.appendChild(script);
+    }
 
-        var script = document.createElement('script');
-        script.src = 'https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js';
-        document.body.appendChild(script);
+    // Fallback timeout
+    setTimeout(function() {
+      if (!window.__decapCmsLoaded) {
+        log('Fallback: Loading CMS after 5s timeout');
+        loadCms();
       }
-
-      // Fallback timeout si Identity n'est jamais disponible
-      setTimeout(function () {
-        if (!window.__decapCmsLoaded && !window.netlifyIdentity) {
-          loadCms();
-        }
-      }, 5000);
-    })();
+    }, 5000);
   </script>
 </body>
 </html>

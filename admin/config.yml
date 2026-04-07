@@ -4,6 +4,9 @@ backend:
 
 site_url: https://sarademange-sophrologie-nantes.netlify.app
 
+auth:
+  base_url: https://sarademange-sophrologie-nantes.netlify.app/.netlify/identity
+
 publish_mode: simple
 locale: fr
 
