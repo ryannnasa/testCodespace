@@ -1,0 +1,97 @@
+backend:
+  name: git-gateway
+  branch: main
+
+publish_mode: simple
+locale: fr
+
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: contact
+    label: Coordonnees
+    files:
+      - name: contact
+        label: Coordonnees du site
+        file: data/contact.json
+        fields:
+          - label: Telephone
+            name: phone
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Valeur, name: value, widget: string }
+              - { label: Lien, name: href, widget: string }
+          - label: Email
+            name: email
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Valeur, name: value, widget: string }
+              - { label: Lien, name: href, widget: string }
+          - label: Adresse
+            name: address
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Rue, name: street, widget: string }
+              - { label: Ville, name: city, widget: string }
+              - { label: Adresse complete, name: fullAddress, widget: string }
+          - label: Horaires
+            name: hours
+            widget: object
+            fields:
+              - { label: Label, name: label, widget: string }
+              - label: Planning
+                name: schedule
+                widget: list
+                summary: "{{fields.day}}: {{fields.time}}"
+                fields:
+                  - { label: Jour, name: day, widget: string }
+                  - { label: Horaire, name: time, widget: string }
+          - label: Google Maps
+            name: googleMaps
+            widget: object
+            fields:
+              - { label: URL embed, name: embed, widget: string }
+              - { label: Latitude, name: latitude, widget: number, value_type: float }
+              - { label: Longitude, name: longitude, widget: number, value_type: float }
+
+  - name: services
+    label: Prestations
+    files:
+      - name: services
+        label: Cartes de prestations
+        file: data/services.json
+        fields:
+          - label: Prestations
+            name: services
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Icone, name: icon, widget: string }
+              - { label: Titre, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Tarif, name: price, widget: string }
+              - { label: Texte bouton, name: cta_text, widget: string }
+              - { label: Lien bouton, name: cta_link, widget: string }
+
+  - name: themes
+    label: Thematiques
+    files:
+      - name: themes
+        label: Thematiques specifiques
+        file: data/themes.json
+        fields:
+          - label: Thematiques
+            name: themes
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: ID, name: id, widget: string }
+              - { label: Titre, name: title, widget: string }
+              - { label: Emoji, name: emoji, widget: string }
+              - { label: Description, name: description, widget: text }
+              - { label: Tarif, name: pricing, widget: string }
+              - { label: Texte bouton, name: cta, widget: string }

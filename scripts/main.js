@@ -84,7 +84,9 @@ function initContactForm() {
 // Initialiser tous les modules au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
     // Charger les components layout
-    loadLayoutComponents();
+    loadLayoutComponents().then(() => {
+        document.dispatchEvent(new Event('layout-components-loaded'));
+    });
     
     // Charger les cartes si la page les contient
     const servicesGrid = document.querySelector('.services-grid');

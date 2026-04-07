@@ -59,3 +59,6 @@ function updateContactElements() {
 
 // Charger les données au démarrage
 document.addEventListener('DOMContentLoaded', loadContactData);
+
+// Réappliquer les données après injection du footer/navbar dynamiques
+document.addEventListener('layout-components-loaded', updateContactElements);

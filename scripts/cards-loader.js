@@ -2,7 +2,8 @@
 export async function loadServiceCards() {
     try {
         const response = await fetch('data/services.json');
-        const services = await response.json();
+        const data = await response.json();
+        const services = Array.isArray(data) ? data : (data.services || []);
         const container = document.getElementById('services-grid');
         
         if (container) {
