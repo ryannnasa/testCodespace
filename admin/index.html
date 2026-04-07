@@ -5,36 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Administration du site</title>
+  <!-- Netlify Identity nécessaire pour l'authentification -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
     (function () {
-      var tokenPattern = /(?:invite_token|recovery_token|confirmation_token)=/;
-      var hash = window.location.hash || '';
+      // Attendre que le widget Netlify Identity soit chargé
+      if (window.netlifyIdentity) {
+        // Initialiser l'authentification Netlify
+        window.netlifyIdentity.init();
+        
+        // Écouter l'initialisation
+        window.netlifyIdentity.on('init', function (user) {
+          // Charger Decap CMS
+          loadCms();
+          
+          // Si pas d'utilisateur connecté et URL contient token, ouvrir le widget
+          if (!user) {
+            window.netlifyIdentity.open();
+          }
+        });
 
-      function hasTokenInSearch() {
-        return tokenPattern.test(window.location.search || '');
-      }
+        // Rediriger après connexion
+        window.netlifyIdentity.on('login', function () {
+          window.location.href = '/admin/';
+        });
 
-      function hasTokenInHash() {
-        return tokenPattern.test(window.location.hash || '');
-      }
-
-      // Netlify Identity consomme surtout les tokens en hash (#...)
-      if (hasTokenInSearch() && !hasTokenInHash()) {
-        var normalizedHash = (window.location.search || '').replace(/^\?/, '#');
-        window.location.replace('/admin/' + normalizedHash);
-        return;
-      }
-
-      var hasIdentityToken = hasTokenInHash();
-
-      function getIdentityModeFromHash() {
-        if (/invite_token=/.test(hash)) return 'signup';
-        if (/recovery_token=/.test(hash)) return 'recovery';
-        if (/confirmation_token=/.test(hash)) return null;
-        return null;
+        // Rediriger après déconnexion
+        window.netlifyIdentity.on('logout', function () {
+          window.location.href = '/admin/';
+        });
+      } else {
+        // Fallback si Identity n'est pas disponible
+        loadCms();
       }
 
       function loadCms() {
@@ -46,42 +50,12 @@
         document.body.appendChild(script);
       }
 
-      function initializeApp() {
-        if (window.netlifyIdentity) {
-          window.netlifyIdentity.on('init', function (user) {
-            if (!user) {
-              window.netlifyIdentity.open();
-            }
-            loadCms();
-          });
-
-          window.netlifyIdentity.on('login', function () {
-            window.location.href = '/admin/';
-          });
-
-          window.netlifyIdentity.on('logout', function () {
-            window.location.href = '/admin/';
-          });
-
-          window.netlifyIdentity.init();
-        } else {
-          loadCms();
-        }
-      }
-
-      // Attendre que le DOM soit prêt et que netlify-identity-widget soit chargé
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeApp);
-      } else {
-        initializeApp();
-      }
-
-      // Fallback si netlifyIdentity n'est pas disponible après 2 secondes
+      // Fallback timeout si Identity n'est jamais disponible
       setTimeout(function () {
         if (!window.__decapCmsLoaded && !window.netlifyIdentity) {
           loadCms();
         }
-      }, 2000);
+      }, 5000);
     })();
   </script>
 </body>
