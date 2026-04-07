@@ -11,6 +11,7 @@
   <script>
     (function () {
       var tokenPattern = /(?:invite_token|recovery_token|confirmation_token)=/;
+      var hash = window.location.hash || '';
 
       function hasTokenInSearch() {
         return tokenPattern.test(window.location.search || '');
@@ -29,6 +30,13 @@
 
       var hasIdentityToken = hasTokenInHash();
 
+      function getIdentityModeFromHash() {
+        if (/invite_token=/.test(hash)) return 'signup';
+        if (/recovery_token=/.test(hash)) return 'recovery';
+        if (/confirmation_token=/.test(hash)) return null;
+        return null;
+      }
+
       function loadCms() {
         if (window.__decapCmsLoaded) return;
         window.__decapCmsLoaded = true;
@@ -41,7 +49,12 @@
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on('init', function () {
           if (hasIdentityToken) {
-            window.netlifyIdentity.open();
+            var mode = getIdentityModeFromHash();
+            if (mode) {
+              window.netlifyIdentity.open(mode);
+            } else {
+              window.netlifyIdentity.open();
+            }
           }
 
           loadCms();
