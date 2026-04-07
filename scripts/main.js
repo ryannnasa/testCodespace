@@ -2,6 +2,15 @@ import { loadLayoutComponents } from './components-loader.js';
 import { loadServiceCards } from './cards-loader.js';
 import { initScrollAnimations, initSmoothScroll } from './animations.js';
 
+function redirectIdentityTokensToAdmin() {
+    const hash = window.location.hash || '';
+    const hasIdentityToken = /(?:invite_token|recovery_token|confirmation_token)=/.test(hash);
+
+    if (hasIdentityToken && !window.location.pathname.startsWith('/admin')) {
+        window.location.href = `/admin/${hash}`;
+    }
+}
+
 // Gérer le formulaire de contact avec Formspree (AJAX)
 function initContactForm() {
     const contactForm = document.getElementById('contact-form');
@@ -83,6 +92,8 @@ function initContactForm() {
 
 // Initialiser tous les modules au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
+    redirectIdentityTokensToAdmin();
+
     // Charger les components layout
     loadLayoutComponents().then(() => {
         document.dispatchEvent(new Event('layout-components-loaded'));

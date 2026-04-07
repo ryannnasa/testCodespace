@@ -8,6 +8,21 @@
 </head>
 <body>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    (function () {
+      var hash = window.location.hash || '';
+      var hasIdentityToken = /(?:invite_token|recovery_token|confirmation_token)=/.test(hash);
+
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function () {
+          if (hasIdentityToken) {
+            window.netlifyIdentity.open();
+          }
+        });
+        window.netlifyIdentity.init();
+      }
+    })();
+  </script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
