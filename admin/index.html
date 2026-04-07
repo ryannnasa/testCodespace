@@ -13,6 +13,7 @@
       // Vérifier si on a un token d'invitation/recovery dans le hash
       var hasInviteToken = /#invite_token=/.test(window.location.hash);
       var hasRecoveryToken = /#recovery_token=/.test(window.location.hash);
+      var isAuthFlow = hasInviteToken || hasRecoveryToken;
       
       function loadCms() {
         if (window.__decapCmsLoaded) return;
@@ -31,21 +32,27 @@
 
         // Événement d'initialisation
         window.netlifyIdentity.on('init', function (user) {
-          if (!user) {
-            // Pas d'utilisateur connecté
-            if (hasInviteToken) {
-              // Mode d'invitation - le widget doit permettre de créer un mot de passe
-              window.netlifyIdentity.open('signup');
-            } else if (hasRecoveryToken) {
-              // Mode de récupération de mot de passe
-              window.netlifyIdentity.open('recovery');
-            } else {
-              // Connexion normale
-              window.netlifyIdentity.open('login');
+          // Si on a un token d'invitation ou recovery, toujours ouvrir le widget approprié
+          if (isAuthFlow) {
+            // Nettoyer la session actuelle pour forcer le formulaire d'invitation
+            if (user) {
+              window.netlifyIdentity.logout();
             }
+            // Ouvrir le widget en mode approprié
+            setTimeout(function() {
+              if (hasInviteToken) {
+                window.netlifyIdentity.open('signup');
+              } else if (hasRecoveryToken) {
+                window.netlifyIdentity.open('recovery');
+              }
+            }, 100);
           } else {
-            // Utilisateur déjà connecté, charger le CMS
-            loadCms();
+            // Pas de token - flux normal
+            if (!user) {
+              window.netlifyIdentity.open('login');
+            } else {
+              loadCms();
+            }
           }
         });
 
@@ -56,7 +63,18 @@
 
         // Événement de déconnexion
         window.netlifyIdentity.on('logout', function () {
-          window.location.href = '/admin/';
+          // Si on est dans un flux d'invitation, rouvrir le widget après logout
+          if (isAuthFlow) {
+            setTimeout(function() {
+              if (hasInviteToken) {
+                window.netlifyIdentity.open('signup');
+              } else if (hasRecoveryToken) {
+                window.netlifyIdentity.open('recovery');
+              }
+            }, 100);
+          } else {
+            window.location.href = '/admin/';
+          }
         });
 
         // Initialiser Netlify Identity
@@ -72,7 +90,7 @@
 
       // Timeout fallback
       setTimeout(function () {
-        if (!window.__decapCmsLoaded && !window.netlifyIdentity) {
+        if (!window.__decapCmsLoaded && !window.netlifyIdentity && !isAuthFlow) {
           loadCms();
         }
       }, 5000);
