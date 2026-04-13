@@ -51,6 +51,24 @@
     font-size: 13px;
 }
 
+/* EXCEPTION - Tablet */
+@media (max-width: 1024px) {
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero-quote-overlay {
+        bottom: 40px;
+        right: 40px;
+        max-width: 350px;
+        padding: var(--space-md);
+    }
+
+    .hero-quote-overlay p {
+        font-size: 13px;
+    }
+}
+
 /* EXCEPTION - Mobile */
 @media (max-width: 768px) {
     .hero {
@@ -60,8 +78,10 @@
     .hero-quote-overlay {
         bottom: 20px;
         right: 20px;
-        max-width: 80%;
+        max-width: 70%;
         padding: var(--space-md);
+        left: auto;
+        width: auto;
     }
 
     .hero-quote-overlay p {
@@ -71,5 +91,25 @@
     .hero-cta .btn-secondary {
         font-size: 16px;
         padding: 12px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 300px;
+    }
+
+    .hero-quote-overlay {
+        bottom: 15px;
+        right: 15px;
+        max-width: 85%;
+        padding: var(--space-sm);
+        border-left-width: 3px;
+    }
+
+    .hero-quote-overlay p {
+        font-size: 11px;
+        line-height: 1.4;
+        margin-bottom: 0.5rem;
     }
 }

@@ -42,6 +42,12 @@
     --container-max: 1200px;
     --container-padding: 20px;
 
+    /* Breakpoints */
+    --bp-mobile: 480px;
+    --bp-tablet: 768px;
+    --bp-desktop: 1024px;
+    --bp-large: 1440px;
+
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-base: 0.3s ease;
@@ -52,6 +58,21 @@
     --z-dropdown: 10;
     --z-sticky: 100;
     --z-modal: 1000;
+}
+
+/* Mobile-first: Adjust spacing for smaller screens */
+@media (max-width: 480px) {
+    :root {
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --space-2xl: 3rem;
+        --space-3xl: 4rem;
+        --text-base: 15px;
+        --text-4xl: 28px;
+        --text-3xl: 24px;
+        --text-2xl: 20px;
+        --container-padding: 16px;
+    }
 }
 
 * {
@@ -119,9 +140,23 @@ img {
    CUBE CSS - Exception Layer
    =========================== */
 
+@media (max-width: 1024px) {
+    h1 { font-size: var(--text-3xl); }
+}
+
 @media (max-width: 768px) {
     h1 { font-size: var(--text-2xl); }
     h2 { font-size: var(--text-2xl); }
     h3 { font-size: var(--text-lg); }
+    
+    .section-header {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 { font-size: var(--text-2xl); }
+    h2 { font-size: var(--text-xl); }
+    h3 { font-size: var(--text-base); }
 }
 

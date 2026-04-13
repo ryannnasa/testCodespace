@@ -1,28 +1,28 @@
 {
-    "services": [
-        {
-            "icon": "🧘",
-            "title": "Séances Individuelles Adulte",
-            "description": "Les Séances individuelles se déroulent du Lundi au Vendredi dans mon Cabinet de Sophrologie à Nantes.",
-            "price": "60 min - 50€",
-            "cta_text": "Réserver",
-            "cta_link": "https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes"
-        },
-        {
-            "icon": "🌱",
-            "title": "Séances Individuelles Adolescent.e",
-            "description": "Les Séances individuelles se déroulent du Lundi au Vendredi dans mon Cabinet de Sophrologie à Nantes.",
-            "price": "60 min - 45€",
-            "cta_text": "Réserver",
-            "cta_link": "https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes"
-        },
-        {
-            "icon": "💼",
-            "title": "Interventions Entreprise",
-            "description": "Les interventions en entreprise sont adaptées aux besoins spécifiques de chaque organisation.",
-            "price": "Sur devis",
-            "cta_text": "En savoir plus",
-            "cta_link": "contact.html#contact"
-        }
-    ]
+  "services": [
+    {
+      "icon": "🧘",
+      "title": "Séances Individuelles Adulte",
+      "description": "Les Séances individuelles se déroulent du Lundi au Vendredi dans mon Cabinet de Sophrologie à Nantes.",
+      "price": "60 min - 50€",
+      "cta_text": "Réserver",
+      "cta_link": "https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes"
+    },
+    {
+      "icon": "🌱",
+      "title": "Séances Individuelles Adolescent.e",
+      "description": "Les Séances individuelles se déroulent du Lundi au Vendredi dans mon Cabinet de Sophrologie à Nantes.",
+      "price": "60 min - 45€",
+      "cta_text": "Réserver",
+      "cta_link": "https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes"
+    },
+    {
+      "icon": "💼",
+      "title": "Interventions Entreprise",
+      "description": "Les interventions en entreprise sont adaptées aux besoins spécifiques de chaque organisation.",
+      "price": "Sur devis",
+      "cta_text": "En savoir plus",
+      "cta_link": "contact.html#contact"
+    }
+  ]
 }

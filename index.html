@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
+<!doctype html>
+<html lang="fr"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sara Demange - Cabinet de Sophrologie sur Nantes</title>
-    <link rel="icon" href="data:," />
+    <link rel="icon" href="data:,">
     
     <!-- CUBE CSS - Foundation (variables, resets, base elements) -->
     <link rel="stylesheet" href="styles/cube.css">
@@ -19,8 +18,11 @@
     <link rel="stylesheet" href="styles/about.css">
     <link rel="stylesheet" href="styles/services.css">
     <link rel="stylesheet" href="styles/contact.css">
+
+    <!-- Responsive utilities -->
+    <link rel="stylesheet" href="styles/responsive.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar Component -->
@@ -29,7 +31,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-image">
-            <img src="images/hero.png" alt="Harmonie et équilibre">
+            <img src="images/hero.png" alt="Harmonie et équilibre" style="object-fit: cover; object-position: 50% 50%; transform-origin: center center; transform: scale(1);">
         </div>
         <div class="hero-content" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background: rgba(0, 0, 0, 0.2); color: white; text-align: center; z-index: 2;">
             <h1 style="font-size: 3.5rem; margin-bottom: 20px; color: rgb(var(--color-white));">Sophrologie - Cabinet à Nantes</h1>
@@ -56,16 +58,16 @@
                     <p>Créée en 1960 par le Professeur Alfonso Caycedo, la sophrologie permet de gérer le stress, l'anxiété et d'améliorer la qualité de vie au quotidien.</p>
                     <h3>Les bienfaits</h3>
                     <ul class="benefits-list">
-                        <li> Réduction du stress et de l'anxiété</li>
-                        <li> Amélioration de la confiance en soi</li>
-                        <li> Meilleur sommeil et relaxation</li>
-                        <li> Gestion des douleurs chroniques</li>
-                        <li> Préparation aux événements importants</li>
-                        <li> Renforcement de la concentration</li>
+                        <li>Réduction du stress et de l'anxiété</li>
+                        <li>Amélioration de la confiance en soi</li>
+                        <li>Meilleur sommeil et relaxation</li>
+                        <li>Gestion des douleurs chroniques</li>
+                        <li>Préparation aux événements importants</li>
+                        <li>Renforcement de la concentration</li>
                     </ul>
                 </div>
                 <div class="about-image">
-                    <img src="images/about.png" alt="Meditation et bien-être">
+                    <img src="images/about.png" alt="Meditation et bien-être" style="object-fit: cover; object-position: 50% 50%; transform-origin: center center; transform: scale(1);">
                 </div>
             </div>
         </div>
@@ -76,7 +78,7 @@
         <div class="container">
             <div class="about-intro-content">
                 <div class="about-intro-image">
-                    <img src="images/sara.png" alt="Sara Demange - Sophrologue">
+                    <img src="/images/sara.png" alt="Sara Demange - Sophrologue" data-live-pos-y="18" style="object-fit: cover; object-position: 50% 18%; transform-origin: center center; transform: scale(1);">
                 </div>
                 <div class="about-intro-text">
                     <h2>Qui suis-je ?</h2>
@@ -106,7 +108,7 @@
                 <h2>Me contacter</h2>
             </div>
             
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+            <div class="contact-grid">
                 <!-- Infos de contact à gauche -->
                 <div class="contact-info">
                     <div class="info-item">
@@ -119,12 +121,12 @@
                     </div>
                     <div class="info-item">
                         <span class="info-label">Adresse</span>
-                        <p data-contact="address">13 Route de Vertou<br>44200 Nantes</p>
+                        <p data-contact="address">13 Route de Vertou44200 Nantes</p>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Horaires</span>
                         <div data-contact="hours">
-                            <p>Lundi - Vendredi: 9h - 19h<br>Samedi: 10h - 14h<br>Dimanche: Fermé</p>
+                            <p>Lundi - Vendredi : 9h - 19h</p>
                         </div>
                     </div>
                 </div>
@@ -148,8 +150,8 @@
             <div style="margin: 40px 0;">
                 <div>
                     <!-- Elfsight Google Reviews | Untitled Google Reviews -->
-                    <script src="https://elfsightcdn.com/platform.js" async></script>
-                    <div class="elfsight-app-24bc193f-aa25-4e2f-9746-22433c784eb6" data-elfsight-app-lazy></div>
+                    <script src="https://elfsightcdn.com/platform.js" async=""></script>
+                    <div class="elfsight-app-24bc193f-aa25-4e2f-9746-22433c784eb6" data-elfsight-app-lazy=""></div>
                 </div>
             </div>
         </div>
@@ -160,5 +162,9 @@
 
     <script src="scripts/contact-loader.js"></script>
     <script type="module" src="scripts/main.js"></script>
-</body>
-</html>
+
+
+
+
+
+</body></html>

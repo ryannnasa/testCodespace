@@ -1,6 +1,7 @@
 import { loadLayoutComponents } from './components-loader.js';
 import { loadServiceCards } from './cards-loader.js';
 import { initScrollAnimations, initSmoothScroll } from './animations.js';
+import { applyPublishedSiteOverrides } from './site-overrides.js';
 
 function redirectIdentityTokensToAdmin() {
     const hash = window.location.hash || '';
@@ -14,6 +15,37 @@ function redirectIdentityTokensToAdmin() {
             : `#${search.replace(/^\?/, '')}`;
         window.location.replace(`/admin/${tokenFragment}`);
     }
+}
+
+// Initialiser le menu mobile hamburger
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (!menuToggle || !navMenu) return;
+    
+    // Toggle menu when hamburger is clicked
+    menuToggle.addEventListener('click', () => {
+        const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isOpen);
+        navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when a link is clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('active');
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.navbar')) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('active');
+        }
+    });
 }
 
 // Gérer le formulaire de contact avec Formspree (AJAX)
@@ -98,9 +130,12 @@ function initContactForm() {
 // Initialiser tous les modules au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
     redirectIdentityTokensToAdmin();
+    applyPublishedSiteOverrides();
 
     // Charger les components layout
     loadLayoutComponents().then(() => {
+        applyPublishedSiteOverrides();
+        initMobileMenu();
         document.dispatchEvent(new Event('layout-components-loaded'));
     });
     
@@ -115,6 +150,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         initContactForm();
     }
+
+    // Reappliquer apres les chargements dynamiques du site
+    document.addEventListener('layout-components-loaded', applyPublishedSiteOverrides);
+    window.addEventListener('load', applyPublishedSiteOverrides);
     
     // Initialiser les animations
     initScrollAnimations();

@@ -34,14 +34,26 @@
       </section>
 
       <section class="editor-card">
+        <h2>Element selectionne</h2>
+        <p class="hint">Cliquez un texte ou une image dans l’aperçu. Les changements restent en brouillon local jusqu’a validation.</p>
+        <div id="selected-summary" class="selected-summary">Aucun element selectionne.</div>
+        <div id="selection-editor"></div>
+        <p id="publish-status" class="hint publish-status">Aucun changement applique aux fichiers pour cette page.</p>
+        <div class="inline-controls editor-actions">
+          <button id="publish-page" type="button" class="btn-action">Appliquer aux fichiers</button>
+          <button id="clear-page-draft" type="button" class="btn-secondary">Reinitialiser la page</button>
+        </div>
+      </section>
+
+      <section class="editor-card">
         <h2>Elements detectes</h2>
-        <p class="hint">Header et footer sont inclus apres leur chargement.</p>
+        <p class="hint">Header, footer et contenu principal sont inclus dans la page chargee.</p>
         <div id="editor-fields"></div>
       </section>
 
       <section class="editor-card">
         <h2>Interaction</h2>
-        <p class="hint">Cliquer dans l'apercu a droite met en focus le champ lie a gauche.</p>
+        <p class="hint">Cliquer sur un texte ou une image ouvre son edition. Les images modifient leur source et leur texte alternatif.</p>
       </section>
     </aside>
 

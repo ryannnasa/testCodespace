@@ -148,6 +148,152 @@
 .footer-credits {
     flex-grow: 1;
     text-align: center;
+    color: var(--dark-color);
+}
+
+/* EXCEPTION - Tablet */
+@media (max-width: 1024px) {
+    .footer-content {
+        padding: 50px 0 30px;
+    }
+
+    .footer-grid {
+        gap: 50px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr 1.5fr;
+    }
+
+    .footer-logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .footer-brand-text h3 {
+        font-size: 20px;
+    }
+
+    .footer-section h4 {
+        font-size: 18px;
+    }
+}
+
+/* EXCEPTION - Mobile */
+@media (max-width: 768px) {
+    .footer-content {
+        padding: 40px 0 25px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .footer-brand-text h3 {
+        font-size: 18px;
+    }
+
+    .footer-brand-text p {
+        font-size: 13px;
+    }
+
+    .footer-section h4 {
+        font-size: 16px;
+        margin-bottom: 15px;
+        padding-bottom: 8px;
+    }
+
+    .footer-section a {
+        font-size: 13px;
+    }
+
+    .footer-section li {
+        margin-bottom: 10px;
+    }
+
+    .footer-contact p {
+        font-size: 13px;
+        margin: 10px 0;
+    }
+
+    .footer-legal {
+        gap: 15px;
+        font-size: 11px;
+    }
+
+    .footer-legal a {
+        min-width: fit-content;
+    }
+}
+
+/* EXCEPTION - Small mobile */
+@media (max-width: 480px) {
+    .footer-content {
+        padding: 30px 0 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .footer-brand {
+        gap: 15px;
+    }
+
+    .footer-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .footer-brand-text h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .footer-brand-text p {
+        font-size: 12px;
+    }
+
+    .footer-section h4 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .footer-section a {
+        font-size: 12px;
+    }
+
+    .footer-section li {
+        margin-bottom: 8px;
+    }
+
+    .footer-contact p {
+        font-size: 12px;
+        margin: 8px 0;
+    }
+
+    .footer-legal {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 10px;
+    }
+
+    .footer-bottom {
+        padding: 12px 0;
+    }
+}
 }
 
 .footer-credits a {
