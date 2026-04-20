@@ -12,14 +12,14 @@
 
 .footer {
     background: rgb(var(--color-secondary));
-    color: var(--dark-color);
+    color: rgb(var(--color-dark));
     padding: 0;
     box-shadow: 0 -5px 20px rgb(var(--color-black-rgb) / 0.08);
 }
 
 .footer-content {
     padding: 60px 0 40px;
-    border-bottom: 0.5px solid var(--text-color);
+    border-bottom: 0.5px solid rgb(var(--color-text));
 }
 
 .footer-grid {
@@ -33,8 +33,15 @@
 
 .footer-brand {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 12px;
+}
+
+.footer-brand-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .footer-logo {
@@ -49,18 +56,33 @@
     border-radius: 50%;
 }
 
+.footer-logo img.brand-image {
+    object-fit: cover;
+    object-position: 50% 50%;
+    transform-origin: center center;
+    transform: scale(1);
+}
+
 .footer-brand-text h3 {
     font-family: 'Playfair Display', serif;
     font-size: 24px;
-    color: var(--dark-color);
-    margin: 0 0 10px 0;
-    line-height: 1.1;
+    color: rgb(var(--color-dark));
+    margin: 0;
+    line-height: 0.95;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.footer-brand-text p {
+.footer-brand-text h3 span {
+    display: block;
+}
+
+.footer-brand-description {
     font-size: 14px;
-    color: var(--text-color);
+    color: rgb(var(--color-text));
     margin: 0;
+    max-width: 320px;
 }
 
 /* BLOCK: Footer sections (navigation, contact) */
@@ -68,10 +90,10 @@
 .footer-section h4 {
     font-family: 'Playfair Display', serif;
     font-size: 20px;
-    color: var(--dark-color);
+    color: rgb(var(--color-dark));
     margin: 0 0 20px 0;
     padding-bottom: 10px;
-    border-bottom: 0.5px solid var(--text-color);
+    border-bottom: 0.5px solid rgb(var(--color-text));
 }
 
 .footer-section ul {
@@ -85,7 +107,7 @@
 }
 
 .footer-section a {
-    color: var(--dark-color);
+    color: rgb(var(--color-dark));
     text-decoration: none;
     transition: color var(--transition-base), text-decoration var(--transition-base);
     font-size: 15px;
@@ -100,7 +122,7 @@
 .footer-contact p {
     margin: 12px 0;
     font-size: 14px;
-    color: var(--dark-color);
+    color: rgb(var(--color-dark));
 }
 
 .footer-contact .icon {
@@ -109,21 +131,21 @@
 }
 
 .footer-contact a {
-    color: var(--dark-color);
+    color: rgb(var(--color-dark));
     text-decoration: none;
     transition: color var(--transition-base), text-decoration var(--transition-base);
 }
 
 .footer-contact a:hover {
-    color: var(--color-primary-dark) !important;
+    color: rgb(var(--color-primary-dark)) !important;
 }
 
 /* BLOCK: Footer bottom (legal and credits) */
 
 .footer-bottom {
-    background: var(--color-footer);
+    background: rgb(var(--color-light));
     padding: 15px 0;
-    border-top: 0.5px solid var(--text-color);
+    border-top: 0.5px solid rgb(var(--color-text));
 }
 
 .footer-legal {
@@ -136,19 +158,19 @@
 }
 
 .footer-legal a {
-    color: var(--dark-color);
+    color: rgb(var(--color-dark));
     text-decoration: none;
     transition: color var(--transition-base), text-decoration var(--transition-base);
 }
 
 .footer-legal a:hover {
-    color: #8b7b5f !important;
+    color: rgb(var(--color-primary-dark)) !important;
 }
 
 .footer-credits {
     flex-grow: 1;
     text-align: center;
-    color: var(--dark-color);
+    color: rgb(var(--color-dark));
 }
 
 /* EXCEPTION - Tablet */
@@ -174,6 +196,10 @@
         font-size: 20px;
     }
 
+    .footer-brand-description {
+        font-size: 13px;
+    }
+
     .footer-section h4 {
         font-size: 18px;
     }
@@ -194,6 +220,10 @@
         grid-column: 1 / -1;
     }
 
+    .footer-brand-top {
+        gap: 8px;
+    }
+
     .footer-logo {
         width: 60px;
         height: 60px;
@@ -203,7 +233,7 @@
         font-size: 18px;
     }
 
-    .footer-brand-text p {
+    .footer-brand-description {
         font-size: 13px;
     }
 
@@ -251,6 +281,10 @@
         gap: 15px;
     }
 
+    .footer-brand-top {
+        gap: 6px;
+    }
+
     .footer-logo {
         width: 50px;
         height: 50px;
@@ -258,10 +292,9 @@
 
     .footer-brand-text h3 {
         font-size: 16px;
-        margin-bottom: 8px;
     }
 
-    .footer-brand-text p {
+    .footer-brand-description {
         font-size: 12px;
     }
 
@@ -292,33 +325,5 @@
 
     .footer-bottom {
         padding: 12px 0;
-    }
-}
-}
-
-.footer-credits a {
-    color: var(--dark-color);
-    text-decoration: none;
-}
-
-.footer-rights {
-    color: var(--text-color);
-}
-
-/* EXCEPTION: Mobile responsive */
-
-@media (max-width: 768px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .footer-legal {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-credits {
-        flex-grow: 0;
     }
 }

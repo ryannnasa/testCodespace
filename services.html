@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
+<!doctype html>
+<html lang="fr"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Prestations - Sara Demange - Sophrologie</title>
-    <link rel="icon" href="data:," />
+    <link rel="icon" href="data:,">
     
     <!-- CUBE CSS - Foundation (variables, resets, base elements) -->
     <link rel="stylesheet" href="styles/cube.css">
@@ -20,7 +19,7 @@
     <link rel="stylesheet" href="styles/services.css">
     <link rel="stylesheet" href="styles/contact.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar Component -->
@@ -29,11 +28,11 @@
     <!-- Hero Section - Mes Prestations -->
     <section class="hero">
         <div class="hero-image">
-            <img src="images/servicesHero.jpg" alt="Mes Prestations">
+            <img class="brand-image" src="images/servicesHero.jpg" alt="Mes Prestations" data-live-zoom="100" data-live-pos-x="50" data-live-pos-y="50">
         </div>
-        <div class="hero-content" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; background: rgba(0, 0, 0, 0.2); color: white; text-align: center; z-index: 2;">
-            <h1 style="font-size: 3.5rem; margin-bottom: 20px; color: rgb(var(--color-white))">Mes Prestations</h1>
-            <p style="font-size: 1.3rem; max-width: 600px;">Découvrez les services adaptés à vos besoins</p>
+        <div class="hero-content">
+            <h1 class="hero-title">Mes Prestations</h1>
+            <p class="hero-text">Découvrez les services adaptés à vos besoins</p>
         </div>
     </section>
 
@@ -42,11 +41,7 @@
         <div class="container">
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <h2 style="margin-bottom: 2rem;">Des Solutions Adaptées à Vos Besoins</h2>
-                <p style="font-size: 1.1rem; line-height: 1.8; color: #4a4a4a;">
-                    Je propose une variété de prestations sophrologiques adaptées à tous les publics et à tous les objectifs. 
-                    Que vous cherchiez à gérer votre stress, à développer votre confiance en soi ou à travailler sur votre bien-être global, 
-                    je saurai vous accompagner avec une approche personnalisée et bienveillante.
-                </p>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #4a4a4a;">Je propose une variété de prestations sophrologiques adaptées à tous les publics et à tous les objectifs. Que vous cherchiez à gérer votre stress, à développer votre confiance en soi ou à travailler sur votre bien-être global, je saurai vous accompagner avec une approche personnalisée et bienveillante.</p>
             </div>
         </div>
     </section>
@@ -61,62 +56,32 @@
             <div class="services-grid">
                 <!-- Séances Adulte -->
                 <div class="service-card">
-                    <div style="font-size: 48px; padding: 2rem 1rem 1rem; flex-shrink: 0;">🧘</div>
-                    <h3 style="margin: 0 0 1rem 0;">Séances Individuelles Adulte</h3>
-                    <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #4a4a4a; flex-grow: 1;">
-                        Des séances sur mesure pour les adultes en quête de bien-être, de gestion du stress ou de développement personnel. 
-                        Idéales pour retrouver l'équilibre et la sérénité dans votre vie quotidienne.
-                    </p>
-                    <p style="margin: 1rem 0; font-weight: 600; color: #9b8b6d;">
-                        60 min - 50€
-                    </p>
-                    <p style="font-size: 0.85rem; color: #4a4a4a; margin-bottom: 1rem;">
-                        📍 Cabinet de Sophrologie à Nantes<br>
-                        🕐 Lundi - Vendredi, 9h - 19h
-                    </p>
-                    <a href="https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes" target="_blank" style="background: transparent; color: #9b8b6d; padding: 0.5rem 1rem; border-radius: 50px; text-decoration: none; display: inline-block; margin: 0 1rem 1rem; transition: all 0.3s ease; border: 2px solid #9b8b6d; font-weight: 600; font-size: 14px; cursor: pointer;">
-                        Réserver
-                    </a>
+                    <div class="service-icon">🧘</div>
+                    <h3>Séances Individuelles Adulte</h3>
+                    <p class="service-description">Des séances sur mesure pour les adultes en quête de bien-être, de gestion du stress ou de développement personnel. Idéales pour retrouver l'équilibre et la sérénité dans votre vie quotidienne.</p>
+                    <p class="service-price">60/75 min - 50€</p>
+                    <p>📍 Cabinet de Sophrologie à Nantes 🕐 Lundi - Vendredi, 9h - 19h</p>
+                    <a href="https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes" target="_blank" class="btn-service">Réserver</a>
                 </div>
 
                 <!-- Séances Adolescent -->
-                <div class="service-card" style="border: 3px solid #9b8b6d; transform: scale(1.05);">
-                    <div style="font-size: 48px; padding: 2rem 1rem 1rem; flex-shrink: 0;">🌟</div>
-                    <h3 style="margin: 0 0 1rem 0;">Séances Individuelles Adolescent.e</h3>
-                    <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #4a4a4a; flex-grow: 1;">
-                        Spécialement conçues pour les adolescents en transition. Ces séances aident à gérer l'anxiété, 
-                        renforcer la confiance en soi et naviguer les changements de cette belle période.
-                    </p>
-                    <p style="margin: 1rem 0; font-weight: 600; color: #9b8b6d;">
-                        60 min - 45€
-                    </p>
-                    <p style="font-size: 0.85rem; color: #4a4a4a; margin-bottom: 1rem;">
-                        📍 Cabinet de Sophrologie à Nantes<br>
-                        🕐 Lundi - Vendredi, 9h - 19h
-                    </p>
-                    <a href="https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes" target="_blank" style="background: #9b8b6d; color: white; padding: 0.5rem 1rem; border-radius: 50px; text-decoration: none; display: inline-block; margin: 0 1rem 1rem; transition: all 0.3s ease; border: 2px solid #9b8b6d; font-weight: 600; font-size: 14px; cursor: pointer;">
-                        Réserver
-                    </a>
+                <div class="service-card">
+                    <div class="service-icon">🌟</div>
+                    <h3>Séances Individuelles Adolescent.e</h3>
+                    <p class="service-description">Spécialement conçues pour les adolescents en transition. Ces séances aident à gérer l'anxiété, renforcer la confiance en soi et naviguer les changements de cette belle période.</p>
+                    <p class="service-price">60 min - 45€</p>
+                    <p>📍 Cabinet de Sophrologie à Nantes 🕐 Lundi - Vendredi, 9h - 19h</p>
+                    <a href="https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes" target="_blank" class="btn-service">Réserver</a>
                 </div>
 
                 <!-- Interventions Entreprise -->
                 <div class="service-card">
-                    <div style="font-size: 48px; padding: 2rem 1rem 1rem; flex-shrink: 0;">💼</div>
-                    <h3 style="margin: 0 0 1rem 0;">Interventions Entreprise</h3>
-                    <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #4a4a4a; flex-grow: 1;">
-                        Apportez le bien-être et la sérénité à vos équipes avec des séances de sophrologie en groupe. 
-                        Adaptées aux besoins spécifiques de votre organisation, elles favorisent une meilleure cohésion.
-                    </p>
-                    <p style="margin: 1rem 0; font-weight: 600; color: #9b8b6d;">
-                        Sur devis
-                    </p>
-                    <p style="font-size: 0.85rem; color: #4a4a4a; margin-bottom: 1rem;">
-                        📍 Sur site ou en visio<br>
-                        🕐 Horaires adaptés à votre entreprise
-                    </p>
-                    <a href="contact.html#contact" style="background: transparent; color: #9b8b6d; padding: 0.5rem 1rem; border-radius: 50px; text-decoration: none; display: inline-block; margin: 0 1rem 1rem; transition: all 0.3s ease; border: 2px solid #9b8b6d; font-weight: 600; font-size: 14px; cursor: pointer;">
-                        En savoir plus
-                    </a>
+                    <div class="service-icon">💼</div>
+                    <h3>Interventions Entreprise</h3>
+                    <p class="service-description">Apportez le bien-être et la sérénité à vos équipes avec des séances de sophrologie en groupe. Adaptées aux besoins spécifiques de votre organisation, elles favorisent une meilleure cohésion.</p>
+                    <p class="service-price">Sur devis</p>
+                    <p>📍 Sur site ou en visio 🕐 Horaires adaptés à votre entreprise</p>
+                    <a href="contact.html#contact" class="btn-service">En savoir plus</a>
                 </div>
             </div>
         </div>
@@ -127,9 +92,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Thématiques Spécifiques</h2>
-                <p style="text-align: center; font-size: 1.1rem; color: #4a4a4a; margin-top: 1rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                    En complément des séances régulières, je propose des accompagnements thématiques
-                </p>
+                <p style="text-align: center; font-size: 1.1rem; color: #4a4a4a; margin-top: 1rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">En complément des séances régulières, je propose des accompagnements thématiques</p>
             </div>
             
             <div class="services-grid" id="themes-grid">
@@ -181,10 +144,8 @@
                 </div>
 
                 <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); text-align: center;">
-                    <img src="images/services.jpeg" alt="Sara Demange" style="width: 100%; border-radius: 10px;">
-                    <p style="margin-top: 1rem; color: #4a4a4a; font-style: italic;">
-                        "Votre bien-être est ma priorité"
-                    </p>
+                    <img class="brand-image" src="images/services.jpeg" alt="Sara Demange" data-live-zoom="100" data-live-pos-x="50" data-live-pos-y="50">
+                    <p style="margin-top: 1rem; color: #4a4a4a; font-style: italic;">"Votre bien-être est ma priorité"</p>
                 </div>
             </div>
         </div>
@@ -200,30 +161,22 @@
             <div style="max-width: 700px; margin: 3rem auto; display: flex; flex-direction: column; gap: 1.5rem;">
                 <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #9b8b6d;">
                     <h3 style="margin-top: 0; color: #9b8b6d;">Quelle est la durée recommandée des séances ?</h3>
-                    <p style="margin: 0; color: #4a4a4a;">
-                        Les séances durent 60 minutes. Pour des résultats optimaux, je recommande une cadence hebdomadaire ou bi-hebdomadaire les premières semaines, puis on peut espéacer selon votre progression.
-                    </p>
+                    <p style="margin: 0; color: #4a4a4a;">Les séances durent 60 minutes. Pour des résultats optimaux, je recommande une cadence hebdomadaire ou bi-hebdomadaire les premières semaines, puis on peut espéacer selon votre progression.</p>
                 </div>
 
                 <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #9b8b6d;">
                     <h3 style="margin-top: 0; color: #9b8b6d;">Peut-on faire de la sophrologie à distance ?</h3>
-                    <p style="margin: 0; color: #4a4a4a;">
-                        Oui, absolument ! Les séances en visio sont tout aussi efficaces qu'en présentiel. Vous devez juste avoir un endroit calme et confortable.
-                    </p>
+                    <p style="margin: 0; color: #4a4a4a;">Oui, absolument ! Les séances en visio sont tout aussi efficaces qu'en présentiel. Vous devez juste avoir un endroit calme et confortable.</p>
                 </div>
 
                 <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #9b8b6d;">
                     <h3 style="margin-top: 0; color: #9b8b6d;">Y a-t-il des contre-indications ?</h3>
-                    <p style="margin: 0; color: #4a4a4a;">
-                        La sophrologie est accessible à tous. Cependant, si vous avez des problèmes de santé spécifiques, je vous recommande d'en parler lors de la première consultation.
-                    </p>
+                    <p style="margin: 0; color: #4a4a4a;">La sophrologie est accessible à tous. Cependant, si vous avez des problèmes de santé spécifiques, je vous recommande d'en parler lors de la première consultation.</p>
                 </div>
 
                 <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #9b8b6d;">
                     <h3 style="margin-top: 0; color: #9b8b6d;">Comment se passe la première séance ?</h3>
-                    <p style="margin: 0; color: #4a4a4a;">
-                        Nous commençons par discuter de vos objectifs et défis. Puis je vous introduis à la sophrologie avec une première technique adaptée à vos besoins.
-                    </p>
+                    <p style="margin: 0; color: #4a4a4a;">Nous commençons par discuter de vos objectifs et défis. Puis je vous introduis à la sophrologie avec une première technique adaptée à vos besoins.</p>
                 </div>
             </div>
         </div>
@@ -244,5 +197,12 @@
     <script src="scripts/contact-loader.js"></script>
     <script src="scripts/themes-loader.js"></script>
     <script type="module" src="scripts/main.js"></script>
-</body>
-</html>
+
+
+
+
+
+
+
+
+</body></html>

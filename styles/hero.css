@@ -22,6 +22,36 @@
     object-fit: cover;
 }
 
+/* BLOCK - Hero content */
+.hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    color: rgb(var(--color-white));
+    text-align: center;
+    z-index: 2;
+    padding: var(--space-lg);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: rgb(var(--color-white));
+}
+
+.hero-text {
+    font-size: 1.3rem;
+    max-width: 600px;
+}
+
+.hero-cta {
+    margin-top: 30px;
+}
+
 /* BLOCK - Quote Overlay */
 .hero-quote-overlay {
     position: absolute;
@@ -67,6 +97,19 @@
     .hero-quote-overlay p {
         font-size: 13px;
     }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-text {
+        font-size: 1.1rem;
+        max-width: 520px;
+    }
+
+    .hero-cta {
+        margin-top: 24px;
+    }
 }
 
 /* EXCEPTION - Mobile */
@@ -86,6 +129,24 @@
 
     .hero-quote-overlay p {
         font-size: 12px;
+    }
+
+    .hero-content {
+        padding: var(--space-md);
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+
+    .hero-text {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .hero-cta {
+        margin-top: 20px;
     }
 
     .hero-cta .btn-secondary {
@@ -111,5 +172,18 @@
         font-size: 11px;
         line-height: 1.4;
         margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-text {
+        font-size: 0.9rem;
+    }
+
+    .hero-cta {
+        margin-top: 16px;
     }
 }
