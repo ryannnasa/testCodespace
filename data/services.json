@@ -2,25 +2,25 @@
   "services": [
     {
       "icon": "🧘",
-      "title": "Séances Individuelles Adulte",
-      "description": "Les Séances individuelles se déroulent du Lundi au Vendredi dans mon Cabinet de Sophrologie à Nantes.",
-      "price": "60 min - 50€",
-      "cta_text": "Réserver",
+      "title": "Gestion du Sommeil",
+      "description": "Retrouvez un sommeil de qualité avec des techniques de relaxation et sophrologie éprouvées. Idéal pour tous ceux qui souffrent d'insomnies ou de troubles du sommeil.",
+      "price": "Forfait 6 séances - 290 $",
+      "cta_text": "En savoir plus",
       "cta_link": "https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes"
     },
     {
       "icon": "🌱",
-      "title": "Séances Individuelles Adolescent.e",
-      "description": "Les Séances individuelles se déroulent du Lundi au Vendredi dans mon Cabinet de Sophrologie à Nantes.",
-      "price": "60 min - 45€",
-      "cta_text": "Réserver",
+      "title": "Préparation Mentale",
+      "description": "Préparez-vous aux examens, entretiens d'embauche ou événements importants avec confiance et sérénité. Techniques éprouvées pour une performance optimale.",
+      "price": "Forfait 3 séances - 120€",
+      "cta_text": "En savoir plus",
       "cta_link": "https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes"
     },
     {
       "icon": "💼",
-      "title": "Interventions Entreprise",
-      "description": "Les interventions en entreprise sont adaptées aux besoins spécifiques de chaque organisation.",
-      "price": "Sur devis",
+      "title": "Gestion du Stress",
+      "description": "Apprenez à gérer votre stress et votre anxiété pour une vie plus sereine et équilibrée. Des outils concrets pour retrouver la tranquillité.",
+      "price": "Forfait 5 séances - 250€",
       "cta_text": "En savoir plus",
       "cta_link": "contact.html#contact"
     }

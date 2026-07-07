@@ -56,9 +56,6 @@ printf 'Proxy Decap: http://localhost:8081\n'
 printf 'Save API: http://localhost:%s/api/write-files\n' "${STATIC_PORT}"
 
 ADMIN_URL="http://localhost:${STATIC_PORT}/admin/live.html"
-if [[ "${CODESPACES:-}" == "true" && -n "${CODESPACE_NAME:-}" && -n "${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN:-}" ]]; then
-  ADMIN_URL="https://${CODESPACE_NAME}-${STATIC_PORT}.${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}/admin/live.html"
-fi
 
 if [[ -n "${BROWSER:-}" ]]; then
   "${BROWSER}" "${ADMIN_URL}" >/dev/null 2>&1 || true

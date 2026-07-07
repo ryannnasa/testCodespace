@@ -25,6 +25,87 @@ const MIME_TYPES = {
 
 const ALLOWED_IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 
+function proxyRequest(req, res, targetPort, targetPath) {
+  const proxyOptions = {
+    hostname: '127.0.0.1',
+    port: targetPort,
+    path: targetPath,
+    method: req.method,
+    headers: {
+      ...req.headers,
+      host: `127.0.0.1:${targetPort}`,
+    },
+  };
+
+  const proxy = http.request(proxyOptions, (proxyRes) => {
+    res.writeHead(proxyRes.statusCode || 502, {
+      ...proxyRes.headers,
+      'access-control-allow-origin': '*',
+    });
+    proxyRes.pipe(res);
+  });
+
+  proxy.on('error', (error) => {
+    res.writeHead(502, { 'Content-Type': 'text/plain; charset=utf-8' });
+    res.end(`Bad gateway: ${error.message}`);
+  });
+
+  req.pipe(proxy);
+}
+
+function getRequestHost(req) {
+  return String(req.headers.host || `localhost:${port}`);
+}
+
+function getRequestHostname(req) {
+  return getRequestHost(req).replace(/:\d+$/, '');
+}
+
+function getRequestProtocol(req) {
+  const hostname = getRequestHostname(req);
+  return hostname === 'localhost' || hostname === '127.0.0.1' ? 'http' : 'https';
+}
+
+function getBackendHost(req) {
+  const requestHost = getRequestHost(req);
+  const hostname = getRequestHostname(req);
+
+  if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    return `${hostname}:8081`;
+  }
+
+  if (/\-8000(\.app\.github\.dev)$/.test(hostname)) {
+    return hostname.replace(/\-8000(\.app\.github\.dev)$/, '-8081$1');
+  }
+
+  return requestHost.replace(/:\d+$/, ':8081');
+}
+
+function buildDecapConfig(req) {
+  const protocol = getRequestProtocol(req);
+  const siteUrl = `${protocol}://${getRequestHost(req)}/index.html`;
+  const hostname = getRequestHostname(req);
+  const allowedHosts = [
+    'localhost',
+    '127.0.0.1',
+    'app.github.dev',
+    hostname,
+  ].filter((value, index, values) => value && values.indexOf(value) === index);
+  const templatePath = path.resolve(rootDir, 'admin', 'config.yml');
+  let content = fs.readFileSync(templatePath, 'utf8');
+  const localBackendBlock = [
+    'local_backend:',
+    '  url: /api/v1',
+    '  allowed_hosts:',
+    ...allowedHosts.map((value) => `    - ${value}`),
+  ].join('\n');
+
+  content = content.replace(/local_backend:[\s\S]*?\n\nsite_url:/, `${localBackendBlock}\n\nsite_url:`);
+  content = content.replace(/^site_url: .*$/m, `site_url: ${siteUrl}`);
+  content = content.replace(/^  base_url: .*$/m, `  base_url: ${siteUrl}/.netlify/identity`);
+  return content;
+}
+
 function ensureUploadsDir() {
   const uploadsDir = path.resolve(rootDir, 'images', 'uploads');
   fs.mkdirSync(uploadsDir, { recursive: true });
@@ -225,6 +306,21 @@ const server = http.createServer(async (req, res) => {
 
   if (req.method === 'GET' && url.pathname === '/api/health') {
     sendJson(res, 200, { ok: true, rootDir, port });
+    return;
+  }
+
+  if (url.pathname === '/api/v1' || url.pathname.startsWith('/api/v1/')) {
+    proxyRequest(req, res, 8081, url.pathname + url.search);
+    return;
+  }
+
+  if (req.method === 'GET' && url.pathname === '/admin/config.yml') {
+    res.writeHead(200, {
+      'Content-Type': 'text/yaml; charset=utf-8',
+      'Cache-Control': 'no-cache',
+      'Access-Control-Allow-Origin': '*',
+    });
+    res.end(buildDecapConfig(req));
     return;
   }
 
