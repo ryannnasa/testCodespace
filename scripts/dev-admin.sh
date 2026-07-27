@@ -21,6 +21,31 @@ port_in_use() {
   return 1
 }
 
+admin_route_ready() {
+  local port="$1"
+  if command -v curl >/dev/null 2>&1; then
+    curl -fsI "http://127.0.0.1:${port}/admin/live.html" >/dev/null 2>&1
+    return $?
+  fi
+
+  return 1
+}
+
+choose_static_port() {
+  local port="$1"
+
+  while port_in_use "${port}"; do
+    if admin_route_ready "${port}"; then
+      printf '%s' "${port}"
+      return 0
+    fi
+
+    port=$((port + 1))
+  done
+
+  printf '%s' "${port}"
+}
+
 cleanup() {
   if [[ -n "${STATIC_PID}" ]] && kill -0 "${STATIC_PID}" 2>/dev/null; then
     kill "${STATIC_PID}" 2>/dev/null || true
@@ -35,6 +60,8 @@ cleanup() {
 trap cleanup EXIT INT TERM
 
 cd "${ROOT_DIR}"
+
+STATIC_PORT="$(choose_static_port "${STATIC_PORT}")"
 
 if port_in_use "${STATIC_PORT}"; then
   printf 'Static server already running on port %s (reusing).\n' "${STATIC_PORT}"

@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
+<!doctype html>
+<html lang="fr"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://formspree.io https://cdn.formspree.io 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://api.formspree.io; frame-src https://www.google.com https://formspree.io; worker-src blob: https://formspree.io;">
     <title>Contact - Sara Demange - Sophrologie</title>
-    <link rel="icon" href="data:," />
+    <link rel="icon" href="data:,">
     
     <!-- CUBE CSS - Foundation (variables, resets, base elements) -->
     <link rel="stylesheet" href="styles/cube.css">
@@ -20,7 +19,7 @@
     <link rel="stylesheet" href="styles/contact.css">
     <link rel="stylesheet" href="styles/services.css">
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar Component -->
@@ -29,7 +28,7 @@
     <!-- Hero Section - Contact -->
     <section class="hero">
         <div class="hero-image">
-            <img class="brand-image" src="images/contact.png" alt="Sara Demange">
+            <img class="brand-image" src="/images/uploads/1785159894159-pexels-lucas-gramatica-2154251402-36840820.jpg" alt="Sara Demange" data-live-zoom="100" data-live-pos-x="50" data-live-pos-y="50" style="object-fit: cover; object-position: 50% 50%; transform-origin: center center; transform: scale(1);">
         </div>
         <div class="hero-content">
             <h1 class="hero-title">Contactez-moi</h1>
@@ -47,7 +46,7 @@
                     
                     <div>
                         <span>📍 Adresse</span>
-                        <p data-contact="address">Nantes, France<br>Cabinet à proximité de la gare</p>
+                        <p data-contact="address">13 Route de Vertou44200 Nantes</p>
                     </div>
 
                     <div>
@@ -63,9 +62,9 @@
                     <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #f0f0f0;">
                         <h4 style="font-size: 1.2rem; color: #3a3a3a; margin-bottom: 1rem;">Horaires</h4>
                         <div data-contact="hours">
-                            <p><strong>Lundi - Jeudi :</strong> 09h00 - 19h00</p>
-                            <p><strong>Vendredi :</strong> 09h00 - 18h00</p>
-                            <p><strong>Samedi :</strong> 10h00 - 17h00</p>
+                            <p><strong>Lundi - Vendredi :</strong> 09h00 - 19h00</p>
+                            <p><strong>Samedi :</strong> 09h00 - 18h00</p>
+                            <p><strong>Dimanche :</strong> 10h00 - 17h00</p>
                             <p><strong>Dimanche :</strong> Fermé</p>
                         </div>
                     </div>
@@ -91,12 +90,12 @@
                     <form class="contact-form" id="contact-form">
                         <div>
                             <label for="name" style="margin-bottom: 0.5rem; font-weight: 600; color: #3a3a3a;">Votre nom *</label>
-                            <input type="text" id="name" name="name" required placeholder="Jean Dupont" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                            <input type="text" id="name" name="name" required="" placeholder="Jean Dupont" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
                         </div>
 
                         <div>
                             <label for="email" style="margin-bottom: 0.5rem; font-weight: 600; color: #3a3a3a;">Votre email *</label>
-                            <input type="email" id="email" name="email" required placeholder="votre.email@exemple.com" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                            <input type="email" id="email" name="email" required="" placeholder="votre.email@exemple.com" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
                         </div>
 
                         <div>
@@ -106,7 +105,7 @@
 
                         <div>
                             <label for="subject" style="margin-bottom: 0.5rem; font-weight: 600; color: #3a3a3a;">Sujet *</label>
-                            <input type="text" id="subject" name="subject" required placeholder="Demande de prise de rendez-vous" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
+                            <input type="text" id="subject" name="subject" required="" placeholder="Demande de prise de rendez-vous" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem;">
                         </div>
 
                         <div>
@@ -127,12 +126,10 @@
 
                         <div>
                             <label for="message" style="margin-bottom: 0.5rem; font-weight: 600; color: #3a3a3a;">Votre message *</label>
-                            <textarea id="message" name="message" required placeholder="Dites-moi comment je peux vous aider..." rows="6" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; resize: vertical; font-family: inherit;"></textarea>
+                            <textarea id="message" name="message" required="" placeholder="Dites-moi comment je peux vous aider..." rows="6" style="padding: 0.8rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; resize: vertical; font-family: inherit;"></textarea>
                         </div>
 
-                        <button type="submit" style="background: #9b8b6d; color: white; padding: 0.8rem 2rem; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; margin-top: 1rem; transition: all 0.3s ease; font-size: 1rem;">
-                            Envoyer le message
-                        </button>
+                        <button type="submit" style="background: #9b8b6d; color: white; padding: 0.8rem 2rem; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; margin-top: 1rem; transition: all 0.3s ease; font-size: 1rem;">Envoyer le message</button>
 
                         <p style="font-size: 0.9rem; color: #4a4a4a; margin-top: 1rem;">* Champs obligatoires</p>
                     </form>
@@ -158,5 +155,7 @@
     <!-- Scripts -->
     <script src="scripts/contact-loader.js"></script>
     <script type="module" src="scripts/main.js"></script>
-</body>
-</html>
+
+
+
+</body></html>
