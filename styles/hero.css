@@ -119,16 +119,7 @@
     }
 
     .hero-quote-overlay {
-        bottom: 20px;
-        right: 20px;
-        max-width: 70%;
-        padding: var(--space-md);
-        left: auto;
-        width: auto;
-    }
-
-    .hero-quote-overlay p {
-        font-size: 12px;
+        display : none;
     }
 
     .hero-content {
@@ -161,17 +152,7 @@
     }
 
     .hero-quote-overlay {
-        bottom: 15px;
-        right: 15px;
-        max-width: 85%;
-        padding: var(--space-sm);
-        border-left-width: 3px;
-    }
-
-    .hero-quote-overlay p {
-        font-size: 11px;
-        line-height: 1.4;
-        margin-bottom: 0.5rem;
+        display : none;
     }
 
     .hero-title {
