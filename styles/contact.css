@@ -27,13 +27,13 @@
 .contact-info span {
     display: block;
     font-weight: 600;
-    color: var(--color-primary);
+    color: rgb(var(--color-primary));
     margin-bottom: var(--space-sm);
     font-size: var(--text-sm);
 }
 
 .contact-info p {
-    color: var(--color-text);
+    color: rgb(var(--color-text));
     font-size: var(--text-base);
     margin: 0;
 }
@@ -41,13 +41,13 @@
 /* BLOCK: Contact info section */
 
 .contact-info a {
-    color: var(--color-text);
+    color: rgb(var(--color-text));
     text-decoration: none;
     display: block;
 }
 
 .contact-info a:hover {
-    color: var(--color-primary);
+    color: rgb(var(--color-primary));
     text-decoration: underline;
 }
 
@@ -71,14 +71,14 @@
     border-radius: 5px;
     font-family: inherit;
     font-size: var(--text-base);
-    color: var(--color-text);
+    color: rgb(var(--color-text));
     transition: border-color var(--transition-base);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: var(--color-primary);
+    border-color: rgb(var(--color-primary));
     box-shadow: 0 0 0 3px rgba(155, 139, 109, 0.1);
 }
 
@@ -93,6 +93,7 @@
     }
 
     .contact-content {
+        grid-template-columns: 1fr;
         gap: var(--space-2xl);
     }
 
@@ -112,13 +113,49 @@
         gap: var(--space-2xl);
     }
 
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-info h3 {
+        margin-bottom: var(--space-lg);
+    }
+
     .contact-info > div {
         margin-bottom: var(--space-lg);
+    }
+
+    .contact-info span {
+        font-size: var(--text-sm);
+        margin-bottom: var(--space-xs);
+    }
+
+    .contact-info p,
+    .contact-info a {
+        font-size: var(--text-base);
+    }
+
+    /* Grille 2 colonnes pour horaires et durée */
+    .contact-info > div:nth-child(n+5) {
+        display: inline-block;
+        width: calc(50% - var(--space-sm));
+        margin-right: var(--space-sm);
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .contact-info > div:nth-child(even) {
+        margin-right: 0;
     }
 
     .contact-form input,
     .contact-form textarea {
         font-size: 16px;
+    }
+
+    .contact-form button {
+        align-self: center;
+        width: auto;
     }
 }
 
@@ -133,13 +170,16 @@
     }
 
     .contact-info {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-md);
+        text-align: center;
+    }
+
+    .contact-info h3 {
+        font-size: var(--text-2xl);
+        margin-bottom: var(--space-lg);
     }
 
     .contact-info > div {
-        margin-bottom: var(--space-sm);
+        margin-bottom: var(--space-lg);
     }
 
     .contact-info span {
@@ -152,13 +192,33 @@
         font-size: 13px;
     }
 
+    .contact-info h4 {
+        font-size: var(--text-base);
+        margin-bottom: var(--space-sm);
+    }
+
+    /* Grille 2 colonnes pour horaires et durée */
+    .contact-info > div:nth-child(n+5) {
+        display: inline-block;
+        width: calc(50% - var(--space-sm));
+        margin-right: var(--space-sm);
+        text-align: center;
+        vertical-align: top;
+    }
+
+    .contact-info > div:nth-child(even) {
+        margin-right: 0;
+    }
+
     .contact-form input,
-    .contact-form textarea {
+    .contact-form textarea,
+    .contact-form select {
         padding: var(--space-sm);
         font-size: 15px;
     }
 
     .contact-form button {
-        width: 100%;
+        width: auto;
+        align-self: center;
     }
 }

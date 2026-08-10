@@ -46,6 +46,10 @@
     margin-bottom: var(--space-md);
 }
 
+.about-text h2 {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-lg);
+}
 .about-text p, .about-intro-text p {
     margin-bottom: var(--space-md);
     line-height: 1.8;
@@ -118,6 +122,12 @@
         padding: var(--space-2xl) 0;
     }
 
+    .about-intro-image {
+        max-width: 250px;
+        margin: 0 auto var(--space-lg);
+        aspect-ratio: 1 / 1;
+    }
+
     .about-content, .about-intro-content {
         grid-template-columns: 1fr;
         gap: var(--space-2xl);
@@ -143,6 +153,10 @@
         grid-template-columns: 1fr;
         gap: var(--space-2xl);
     }
+
+        .about-image {
+        display: none;
+    }
 }
 
 /* EXCEPTION - Small mobile */
@@ -153,6 +167,12 @@
 
     .about-content, .about-intro-content {
         gap: var(--space-xl);
+    }
+
+    .about-intro-image {
+        max-width: 250px;
+        margin: 0 auto var(--space-lg);
+        aspect-ratio: 1 / 1;
     }
 
     .about-image, .about-intro-image {
@@ -172,5 +192,9 @@
 
     .about-text h3, .about-intro-text h2 {
         font-size: var(--text-lg);
+    }
+
+        .about-image {
+        display: none;
     }
 }
