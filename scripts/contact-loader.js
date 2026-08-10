@@ -6,14 +6,16 @@
 let contactData = null;
 
 // Charger les données de contact
-async function loadContactData() {
-    try {
-        const response = await fetch('data/contact.json');
-        contactData = await response.json();
-        updateContactElements();
-    } catch (error) {
-        console.error('Erreur lors du chargement des données de contact:', error);
-    }
+function loadContactData() {
+    return fetch('data/contact.json')
+        .then(response => response.json())
+        .then(data => {
+            contactData = data;
+            updateContactElements();
+        })
+        .catch((error) => {
+            console.error('Erreur lors du chargement des données de contact:', error);
+        });
 }
 
 // Mettre à jour les éléments qui affichent les données de contact

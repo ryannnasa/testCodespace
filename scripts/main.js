@@ -127,6 +127,78 @@ function initContactForm() {
     }
 }
 
+function initServiceCardExpansion() {
+    const measureCardFits = (card) => {
+        const minCardHeight = card.offsetHeight;
+        const clone = card.cloneNode(true);
+        clone.classList.remove('is-expanded', 'is-fit');
+        clone.style.position = 'absolute';
+        clone.style.visibility = 'hidden';
+        clone.style.pointerEvents = 'none';
+        clone.style.left = '-99999px';
+        clone.style.top = '0';
+        clone.style.width = `${card.getBoundingClientRect().width}px`;
+        clone.style.height = 'auto';
+        clone.style.minHeight = '0';
+
+        const cloneDescription = clone.querySelector('.service-description');
+        if (cloneDescription) {
+            cloneDescription.style.maxHeight = 'none';
+            cloneDescription.style.overflow = 'visible';
+        }
+
+        document.body.appendChild(clone);
+
+        const fitsWithinCard = clone.scrollHeight <= minCardHeight;
+        clone.remove();
+
+        return fitsWithinCard;
+    };
+
+    const updateServiceCardStates = () => {
+        document.querySelectorAll('.service-card').forEach((card) => {
+            const description = card.querySelector('.service-description');
+            if (!description) return;
+
+            const fitsWithinCard = measureCardFits(card);
+            card.classList.toggle('is-fit', fitsWithinCard);
+
+            if (fitsWithinCard) {
+                card.classList.remove('is-expanded');
+            }
+        });
+    };
+
+    const scheduleServiceCardStateUpdate = () => {
+        window.requestAnimationFrame(updateServiceCardStates);
+    };
+
+    scheduleServiceCardStateUpdate();
+
+    document.addEventListener('service-cards-loaded', updateServiceCardStates);
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(scheduleServiceCardStateUpdate);
+    }
+
+    window.addEventListener('load', scheduleServiceCardStateUpdate);
+
+    window.addEventListener('resize', () => {
+        scheduleServiceCardStateUpdate();
+    });
+
+    document.addEventListener('click', (event) => {
+        const card = event.target.closest('.service-card');
+        if (!card) return;
+
+        if (event.target.closest('.btn-service')) return;
+
+        if (card.classList.contains('is-fit')) return;
+
+        card.classList.toggle('is-expanded');
+    });
+}
+
 // Initialiser tous les modules au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
     redirectIdentityTokensToAdmin();
@@ -142,7 +214,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Charger les cartes si la page les contient
     const servicesGrid = document.querySelector('.services-grid');
     if (servicesGrid) {
-        loadServiceCards();
+        loadServiceCards().then(() => {
+            document.dispatchEvent(new Event('service-cards-loaded'));
+        });
     }
     
     // Initialiser le formulaire de contact si présent
@@ -150,6 +224,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         initContactForm();
     }
+
+    initServiceCardExpansion();
 
     // Reappliquer apres les chargements dynamiques du site
     document.addEventListener('layout-components-loaded', applyPublishedSiteOverrides);
