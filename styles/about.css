@@ -15,6 +15,13 @@
     align-items: center;
 }
 
+.approche-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
 /* UTILITY: Image sizing and typography resets */
 
 .about-image, .about-intro-image {
@@ -34,9 +41,31 @@
     margin-bottom: var(--space-lg);
 }
 
+.about-text h3 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-md);
+}
+
 .about-text p, .about-intro-text p {
     margin-bottom: var(--space-md);
     line-height: 1.8;
+}
+
+.about-intro-text p {
+    max-width: 62ch;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    text-wrap: pretty;
+    hyphens: auto;
+    white-space: pre-line;
+}
+
+.about-intro-text p:first-of-type {
+    padding-top: var(--space-xs);
+}
+
+.about-intro-text p:last-of-type {
+    margin-bottom: 0;
 }
 
 /* BLOCK: Benefits list component */
@@ -44,18 +73,20 @@
 .benefits-list {
     list-style: none;
     padding: 0;
-    margin: var(--space-lg) 0;
+    margin: var(--space-md) 0 0;
 }
 
 .benefits-list li {
-    padding: var(--space-sm) 0 var(--space-sm) var(--space-2xl);
+    padding: var(--space-xs) 0 var(--space-xs) var(--space-2xl);
     position: relative;
+    line-height: 1.6;
 }
 
 .benefits-list li::before {
     content: '✨';
     position: absolute;
     left: 0;
+    top: 0.15rem;
     color: var(--color-primary);
     font-weight: bold;
 }
@@ -105,7 +136,12 @@
     }
 
     .benefits-list li {
-        padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+        padding: var(--space-xs) 0 var(--space-xs) var(--space-lg);
+    }
+
+    .approche-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
     }
 }
 
@@ -126,6 +162,12 @@
     .about-text p, .about-intro-text p {
         margin-bottom: var(--space-sm);
         font-size: 14px;
+    }
+
+    .about-intro-text p {
+        max-width: none;
+        font-size: 14px;
+        line-height: 1.85;
     }
 
     .about-text h3, .about-intro-text h2 {

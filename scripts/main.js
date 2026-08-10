@@ -127,6 +127,39 @@ function initContactForm() {
     }
 }
 
+function initMobileExpandableText() {
+    const expandableTextNodes = Array.from(document.querySelectorAll('[data-mobile-expandable]'));
+
+    if (!expandableTextNodes.length) {
+        return;
+    }
+
+    expandableTextNodes.forEach((node, index) => {
+        if (node.dataset.mobileExpandableInit === 'true') {
+            return;
+        }
+
+        node.dataset.mobileExpandableInit = 'true';
+
+        node.setAttribute('role', 'button');
+        node.setAttribute('tabindex', '0');
+        node.setAttribute('aria-expanded', 'false');
+
+        const toggleNode = () => {
+            const isExpanded = node.classList.toggle('is-expanded');
+            node.setAttribute('aria-expanded', String(isExpanded));
+        };
+
+        node.addEventListener('click', toggleNode);
+        node.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                toggleNode();
+            }
+        });
+    });
+}
+
 function initServiceCardExpansion() {
     const measureCardFits = (card) => {
         const minCardHeight = card.offsetHeight;
@@ -224,6 +257,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         initContactForm();
     }
+
+    initMobileExpandableText();
 
     initServiceCardExpansion();
 
