@@ -6,8 +6,8 @@
   },
   "email": {
     "label": "Email",
-    "value": "sara.demange54@gmail.com",
-    "href": "mailto:sara.demange54@gmail.com"
+    "value": "sarasophro44@gmail.com",
+    "href": "mailto:sarasophro44@gmail.com"
   },
   "address": {
     "label": "Adresse",
@@ -19,15 +19,15 @@
     "label": "Horaires",
     "schedule": [
       {
-        "day": "Lundi - Vendredi",
-        "time": "9h - 19h"
+        "day": "Lundi",
+        "time": "9h - 19h30"
       },
       {
-        "day": "Samedi",
-        "time": "10h - 14h"
+        "day": "Mardi à Vendredi",
+        "time": "18h - 19h30"
       },
       {
-        "day": "Dimanche",
+        "day": "Samedi/Dimanche",
         "time": "Fermé"
       }
     ]
