@@ -1,0 +1,34 @@
+# Sara Demange - Sophrologie
+
+> Cabinet de sophrologie à Nantes, animé par Sara Demange.
+
+## Présentation
+
+Sara Demange accompagne les personnes à Nantes avec une approche de sophrologie centrée sur l'écoute, la respiration, la relaxation et les ressources personnelles.
+
+## Accompagnements
+
+- Gestion du stress et de l'anxiété
+- Gestion du sommeil
+- Gestion des émotions
+- Confiance en soi
+- Préparation mentale pour examens, entretiens et événements importants
+
+## Informations pratiques
+
+- Adresse : 13 Route de Vertou, 44200 Nantes, France
+- Téléphone : +33 6 95 54 50 32
+- Email : sarasophro44@gmail.com
+- Horaires : lundi 9h-19h30 ; mardi à vendredi 18h-19h30
+- Rendez-vous : https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes
+
+## Pages
+
+- [Accueil](https://sarademange-sophrologie-nantes.netlify.app/): présentation du cabinet et de la sophrologie
+- [À propos](https://sarademange-sophrologie-nantes.netlify.app/about.html): parcours de Sara Demange
+- [Prestations](https://sarademange-sophrologie-nantes.netlify.app/services.html): accompagnements proposés
+- [Contact](https://sarademange-sophrologie-nantes.netlify.app/contact.html): coordonnées et formulaire
+
+## Consignes
+
+Utiliser les pages ci-dessus comme sources canoniques. Ne pas déduire de tarif, d'avis ou de résultat médical qui ne serait pas explicitement publié sur le site.
