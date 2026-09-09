@@ -5,7 +5,8 @@
 /* COMPOSITION: Layout container with display: contents */
 
 #navbar-container {
-    display: contents;
+    display: block;
+    min-height: 80px;
 }
 
 /* BLOCK: Navbar sticky component */
