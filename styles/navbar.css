@@ -8,6 +8,9 @@
     display: block;
     min-height: 0;
     height: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 /* BLOCK: Navbar sticky component */
@@ -15,9 +18,7 @@
 .navbar {
     background: white;
     padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: relative;
 }
 
 .navbar::after {
