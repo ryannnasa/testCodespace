@@ -7,6 +7,7 @@
 #navbar-container {
     display: block;
     min-height: 80px;
+    height: 80px;
 }
 
 /* BLOCK: Navbar sticky component */
@@ -14,8 +15,11 @@
 .navbar {
     background: white;
     padding: 15px 0;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 100;
 }
 
@@ -186,6 +190,11 @@
 @media (max-width: 768px) {
     .navbar {
         padding: 12px 0;
+    }
+
+    #navbar-container {
+        min-height: 64px;
+        height: 64px;
     }
 
     .nav-wrapper {
