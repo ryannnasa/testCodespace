@@ -3,24 +3,24 @@
     {
       "icon": "🧘",
       "title": "Gestion du Sommeil",
-      "description": "Retrouvez un sommeil de qualité avec des techniques de relaxation et sophrologie éprouvées. Idéal pour tous ceux qui souffrent d'insomnies ou de troubles du sommeil.",
-      "price": "Forfait 4 séances - 150 $",
+      "description": " Un accompagnement pour retrouvez un sommeil de qualité. Idéal pour tous ceux qui souffrent d'insomnies ou de troubles du sommeil.               ",
+      "price": "Forfait 7 séances - 330€",
       "cta_text": "En savoir plus",
       "cta_link": "https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes"
     },
     {
       "icon": "🌱",
-      "title": "Préparation Mentale",
-      "description": "Préparez-vous aux examens, entretiens d'embauche ou événements importants avec confiance et sérénité. Techniques éprouvées pour une performance optimale.",
-      "price": "Forfait 3 séances - 120€",
+      "title": "Gestion du Stress/Anxiété",
+      "description": "Apprenez à gérer votre stress et votre anxiété pour une vie plus sereine et équilibrée. Des outils concrets pour retrouver la tranquillité.",
+      "price": "Forfait 5 séances - 220€",
       "cta_text": "En savoir plus",
       "cta_link": "https://www.resalib.fr/praticien/107607-sara-demange-sophrologue-nantes"
     },
     {
       "icon": "💼",
-      "title": "Gestion du Stress",
-      "description": "Apprenez à gérer votre stress et votre anxiété pour une vie plus sereine et équilibrée. Des outils concrets pour retrouver la tranquillité.",
-      "price": "Forfait 5 séances - 200€",
+      "title": "Séances de Groupe",
+      "description": "Venez découvrir la sophrologie accompagné(e) d'un(e) ami(e), autour d'une thématique de votre choix ou de celle que je propose (à consulter sur Resalib ou mon compte Instagram).",
+      "price": "60-75 min - 30€ (par personne)",
       "cta_text": "En savoir plus",
       "cta_link": "contact.html#contact"
     }
