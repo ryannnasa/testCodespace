@@ -3,25 +3,25 @@
     {
       "id": "sommeil",
       "title": "Gestion du Sommeil",
-      "emoji": "😴",
-      "description": "Retrouvez un sommeil de qualité avec des techniques de relaxation et sophrologie éprouvées. Idéal pour tous ceux qui souffrent d'insomnies ou de troubles du sommeil.",
-      "pricing": "Forfait 4 séances - 150€",
+      "emoji": "🧘",
+      "description": "Un accompagnement pour retrouver un sommeil de qualité. Idéal pour tous ceux qui souffrent d'insomnies ou de troubles du sommeil.",
+      "pricing": "Forfait 7 séances - 330€",
       "cta": "En savoir plus"
     },
     {
       "id": "gestion-stress",
       "title": "Gestion du Stress/Anxiété",
-      "emoji": "💪",
+      "emoji": "🌱",
       "description": "Apprenez à gérer votre stress et votre anxiété pour une vie plus sereine et équilibrée. Des outils concrets pour retrouver la tranquillité.",
-      "pricing": "Forfait 5 séances - 200€",
+      "pricing": "Forfait 5 séances - 220€",
       "cta": "En savoir plus"
     },
     {
       "id": "seances-groupe",
       "title": "Séances de Groupe",
       "emoji": "👥",
-      "description": "Partagez une expérience collective bienveillante avec d'autres personnes dans un cadre sécurisant. Une approche enrichissante et motivante.",
-      "pricing": "60 min - 20€",
+      "description": "Venez découvrir la sophrologie accompagné(e) d'un(e) ami(e), autour d'une thématique de votre choix ou de celle que je propose (à consulter sur Resalib ou mon compte Instagram).",
+      "pricing": "60-75 min - 30€ (par personne)",
       "cta": "En savoir plus"
     }
   ]
